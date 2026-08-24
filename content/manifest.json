@@ -1,0 +1,209 @@
+{
+  "site": {
+    "name": "VisionNav AGV Customer Support Wiki",
+    "tagline": "Site Operation & Troubleshooting Guide",
+    "contact": {
+      "phone": "+86 400-XXX-XXXX",
+      "email": "service@visionnav.com",
+      "hours": "24/7 for Level 3 emergencies, 09:00–18:00 (GMT+8) for general support"
+    }
+  },
+  "categories": [
+    {
+      "id": "troubleshooting",
+      "label": "Troubleshooting",
+      "icon": "🚨",
+      "description": "Find a fix by what you see happening on site."
+    },
+    {
+      "id": "operations",
+      "label": "Daily Operations",
+      "icon": "⚙️",
+      "description": "Everyday start-up, shutdown and mode-switching procedures."
+    },
+    {
+      "id": "reference",
+      "label": "Reference",
+      "icon": "📖",
+      "description": "Alarm codes, status meanings, indicator lights and FAQ."
+    }
+  ],
+  "pages": [
+    {
+      "id": "agv-stopped",
+      "category": "troubleshooting",
+      "file": "troubleshooting/agv-stopped.md",
+      "title": "AGV Stopped / Not Moving",
+      "symptom": "AGV is powered on but will not move or accept new tasks.",
+      "alarmCode": "Varies (see Alarm Codes reference)",
+      "severity": "red",
+      "accessLevel": 1,
+      "keywords": ["agv stopped", "not moving", "agv 不动", "不动", "停止", "无法移动", "stuck", "frozen", "won't move", "stopped moving", "no motion", "AGV停在原地"]
+    },
+    {
+      "id": "safety-laser",
+      "category": "troubleshooting",
+      "file": "troubleshooting/safety-laser.md",
+      "title": "Safety Laser Alarm",
+      "symptom": "AGV stops suddenly and a safety laser / safety field alarm is shown.",
+      "alarmCode": "SL-101 / SL-102 / SL-201",
+      "severity": "red",
+      "accessLevel": 1,
+      "keywords": ["safety laser alarm", "laser alarm", "laser", "safety field", "obstacle detected", "e-stop laser", "安全激光", "激光报警", "避障报警", "safety scanner"]
+    },
+    {
+      "id": "localization",
+      "category": "troubleshooting",
+      "file": "troubleshooting/localization.md",
+      "title": "Localization Problem",
+      "symptom": "AGV reports lost position, low localization confidence, or drifts off path.",
+      "alarmCode": "LOC-301 / LOC-302",
+      "severity": "red",
+      "accessLevel": 2,
+      "keywords": ["localization problem", "localization", "lost position", "position lost", "map error", "定位", "定位丢失", "定位异常", "偏航", "off path", "confidence low"]
+    },
+    {
+      "id": "charging",
+      "category": "troubleshooting",
+      "file": "troubleshooting/charging.md",
+      "title": "Charging Problem",
+      "symptom": "AGV will not charge, charging is slow, or battery drops rapidly.",
+      "alarmCode": "CHG-401 / CHG-402",
+      "severity": "yellow",
+      "accessLevel": 1,
+      "keywords": ["charging problem", "charging", "not charging", "battery", "无法充电", "充电异常", "充电桩", "battery low", "charge fail", "charging station"]
+    },
+    {
+      "id": "communication",
+      "category": "troubleshooting",
+      "file": "troubleshooting/communication.md",
+      "title": "Communication Problem",
+      "symptom": "AGV shows offline in RCS, or network/communication alarm appears.",
+      "alarmCode": "COM-501 / COM-502",
+      "severity": "yellow",
+      "accessLevel": 2,
+      "keywords": ["communication problem", "communication", "offline", "network", "disconnect", "wifi", "通信", "通信异常", "掉线", "网络问题", "lost connection", "rcs offline"]
+    },
+    {
+      "id": "task-execution",
+      "category": "troubleshooting",
+      "file": "troubleshooting/task-execution.md",
+      "title": "Task Execution Problem",
+      "symptom": "AGV accepts a task but fails to complete it, or the task is stuck in progress.",
+      "alarmCode": "TSK-601 / TSK-602",
+      "severity": "yellow",
+      "accessLevel": 2,
+      "keywords": ["task execution problem", "task stuck", "task failed", "task not completing", "任务", "任务卡住", "任务失败", "job stuck", "mission failed", "fork problem", "mechanical problem", "fork / mechanical"]
+    },
+    {
+      "id": "startup",
+      "category": "operations",
+      "file": "operations/startup.md",
+      "title": "AGV Start-up",
+      "symptom": "Daily procedure to power on and prepare an AGV for operation.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": ["agv start-up", "startup", "power on", "开机", "启动", "start agv", "boot up"]
+    },
+    {
+      "id": "shutdown",
+      "category": "operations",
+      "file": "operations/shutdown.md",
+      "title": "AGV Shut-down",
+      "symptom": "Daily procedure to safely power down an AGV.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": ["agv shutdown", "shut down", "power off", "关机", "停机", "shutdown procedure"]
+    },
+    {
+      "id": "auto-manual-mode",
+      "category": "operations",
+      "file": "operations/auto-manual-mode.md",
+      "title": "Auto / Manual Mode Switching",
+      "symptom": "How to switch an AGV between Automatic and Manual driving mode.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": ["auto manual mode", "auto mode", "manual mode", "mode switch", "自动模式", "手动模式", "模式切换", "switch mode"]
+    },
+    {
+      "id": "emergency-stop",
+      "category": "operations",
+      "file": "operations/emergency-stop.md",
+      "title": "Emergency Stop Recovery",
+      "symptom": "How to safely release an emergency stop (E-Stop) and resume operation.",
+      "alarmCode": "ESTOP-001",
+      "severity": "red",
+      "accessLevel": 1,
+      "keywords": ["emergency stop", "e-stop", "estop", "急停", "紧急停止", "release e-stop", "estop recovery"]
+    },
+    {
+      "id": "manual-driving",
+      "category": "operations",
+      "file": "operations/manual-driving.md",
+      "title": "Manual Driving",
+      "symptom": "How to safely drive an AGV manually using the handheld/joystick controls.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": ["manual driving", "joystick", "手动驾驶", "手柄", "drive manually", "remote control drive"]
+    },
+    {
+      "id": "charging-ops",
+      "category": "operations",
+      "file": "operations/charging.md",
+      "title": "Charging (Daily Operation)",
+      "symptom": "Standard daily procedure for docking, charging and undocking an AGV.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": ["charging operation", "daily charging", "dock charging", "充电流程", "自动充电", "manual charging dock"]
+    },
+    {
+      "id": "alarm-codes",
+      "category": "reference",
+      "file": "reference/alarm-codes.md",
+      "title": "Alarm Codes",
+      "symptom": "Full list of alarm codes, meaning and severity.",
+      "alarmCode": "All",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": ["alarm codes", "alarm list", "error codes", "报警代码", "故障代码", "alarm code table"]
+    },
+    {
+      "id": "agv-status",
+      "category": "reference",
+      "file": "reference/agv-status.md",
+      "title": "AGV Status Meanings",
+      "symptom": "What each AGV status shown in RCS means.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": ["agv status", "status meaning", "rcs status", "AGV状态", "状态说明", "idle busy charging status"]
+    },
+    {
+      "id": "indicator-lights",
+      "category": "reference",
+      "file": "reference/indicator-lights.md",
+      "title": "Indicator Lights",
+      "symptom": "What each AGV tower/beacon light color and pattern means.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": ["indicator lights", "tower light", "beacon", "light color meaning", "指示灯", "信号灯", "三色灯", "led meaning"]
+    },
+    {
+      "id": "faq",
+      "category": "reference",
+      "file": "reference/faq.md",
+      "title": "Frequently Asked Questions",
+      "symptom": "Common questions from operators and supervisors.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": ["faq", "frequently asked questions", "common questions", "常见问题", "questions"]
+    }
+  ]
+}
