@@ -1,12 +1,7 @@
 {
   "site": {
     "name": "VisionNav AGV Customer Support Wiki",
-    "tagline": "Site Operation & Troubleshooting Guide",
-    "contact": {
-      "phone": "+86 400-XXX-XXXX",
-      "email": "service@visionnav.com",
-      "hours": "24/7 for Level 3 emergencies, 09:00–18:00 (GMT+8) for general support"
-    }
+    "tagline": "Site Operation & Troubleshooting Guide"
   },
   "categories": [
     {
@@ -35,7 +30,7 @@
       "file": "troubleshooting/agv-stopped.md",
       "title": "AGV Stopped / Not Moving",
       "symptom": "AGV is powered on but will not move or accept new tasks.",
-      "alarmCode": "Varies (see Alarm Codes reference)",
+      "alarmCode": "StoppedLongTime / MainThreadTimeout / ManualMode / ControlRegionStop",
       "severity": "red",
       "accessLevel": 1,
       "keywords": ["agv stopped", "not moving", "agv 不动", "不动", "停止", "无法移动", "stuck", "frozen", "won't move", "stopped moving", "no motion", "AGV停在原地"]
@@ -46,10 +41,10 @@
       "file": "troubleshooting/safety-laser.md",
       "title": "Safety Laser Alarm",
       "symptom": "AGV stops suddenly and a safety laser / safety field alarm is shown.",
-      "alarmCode": "SL-101 / SL-102 / SL-201",
+      "alarmCode": "LaserBreakdown 0x02300021 / LaserClose 0x02100206",
       "severity": "red",
       "accessLevel": 1,
-      "keywords": ["safety laser alarm", "laser alarm", "laser", "safety field", "obstacle detected", "e-stop laser", "安全激光", "激光报警", "避障报警", "safety scanner"]
+      "keywords": ["safety laser alarm", "laser alarm", "laser", "safety field", "obstacle detected", "e-stop laser", "安全激光", "激光报警", "避障报警", "safety scanner", "LaserBreakdown", "LaserClose"]
     },
     {
       "id": "localization",
@@ -57,10 +52,10 @@
       "file": "troubleshooting/localization.md",
       "title": "Localization Problem",
       "symptom": "AGV reports lost position, low localization confidence, or drifts off path.",
-      "alarmCode": "LOC-301 / LOC-302",
+      "alarmCode": "LowReliability 0x02300014 / OffPath 0x0230001B",
       "severity": "red",
       "accessLevel": 2,
-      "keywords": ["localization problem", "localization", "lost position", "position lost", "map error", "定位", "定位丢失", "定位异常", "偏航", "off path", "confidence low"]
+      "keywords": ["localization problem", "localization", "lost position", "position lost", "map error", "定位", "定位丢失", "定位异常", "偏航", "off path", "confidence low", "LowReliability", "OffPath"]
     },
     {
       "id": "charging",
@@ -68,10 +63,10 @@
       "file": "troubleshooting/charging.md",
       "title": "Charging Problem",
       "symptom": "AGV will not charge, charging is slow, or battery drops rapidly.",
-      "alarmCode": "CHG-401 / CHG-402",
+      "alarmCode": "ChargingError 0x0240002D / RatherLowBattery 0x02400012 / LowBattery 0x02200103",
       "severity": "yellow",
       "accessLevel": 1,
-      "keywords": ["charging problem", "charging", "not charging", "battery", "无法充电", "充电异常", "充电桩", "battery low", "charge fail", "charging station"]
+      "keywords": ["charging problem", "charging", "not charging", "battery", "无法充电", "充电异常", "充电桩", "battery low", "charge fail", "charging station", "ChargingError", "RatherLowBattery"]
     },
     {
       "id": "communication",
@@ -79,10 +74,10 @@
       "file": "troubleshooting/communication.md",
       "title": "Communication Problem",
       "symptom": "AGV shows offline in RCS, or network/communication alarm appears.",
-      "alarmCode": "COM-501 / COM-502",
+      "alarmCode": "NetworkError 0x02300023 / ControlCenterCommunicationError 0x02300020",
       "severity": "yellow",
       "accessLevel": 2,
-      "keywords": ["communication problem", "communication", "offline", "network", "disconnect", "wifi", "通信", "通信异常", "掉线", "网络问题", "lost connection", "rcs offline"]
+      "keywords": ["communication problem", "communication", "offline", "network", "disconnect", "wifi", "通信", "通信异常", "掉线", "网络问题", "lost connection", "rcs offline", "NetworkError", "McuCommunicationError"]
     },
     {
       "id": "task-execution",
@@ -90,10 +85,10 @@
       "file": "troubleshooting/task-execution.md",
       "title": "Task Execution Problem",
       "symptom": "AGV accepts a task but fails to complete it, or the task is stuck in progress.",
-      "alarmCode": "TSK-601 / TSK-602",
+      "alarmCode": "ForkCollision / LoadSafetyCheckFail / NoGoodsDetected / GoodsWidthCheckFail",
       "severity": "yellow",
       "accessLevel": 2,
-      "keywords": ["task execution problem", "task stuck", "task failed", "task not completing", "任务", "任务卡住", "任务失败", "job stuck", "mission failed", "fork problem", "mechanical problem", "fork / mechanical"]
+      "keywords": ["task execution problem", "task stuck", "task failed", "task not completing", "任务", "任务卡住", "任务失败", "job stuck", "mission failed", "fork problem", "mechanical problem", "fork / mechanical", "ForkCollision", "LoadSafetyCheckFail", "Task Error"]
     },
     {
       "id": "startup",
@@ -134,7 +129,7 @@
       "file": "operations/emergency-stop.md",
       "title": "Emergency Stop Recovery",
       "symptom": "How to safely release an emergency stop (E-Stop) and resume operation.",
-      "alarmCode": "ESTOP-001",
+      "alarmCode": "EmergencyStop 0x02400003",
       "severity": "red",
       "accessLevel": 1,
       "keywords": ["emergency stop", "e-stop", "estop", "急停", "紧急停止", "release e-stop", "estop recovery"]
