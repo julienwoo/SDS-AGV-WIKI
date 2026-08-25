@@ -122,8 +122,8 @@
     html += "</div></div>";
 
     html += '<div class="vn-help-banner"><h2>🆘 Still have a problem?</h2>';
-    html += "<p>If none of the above solved it, contact VisionNav Service with your AGV ID, alarm code, and a screenshot.</p>";
-    html += '<a class="vn-btn" href="#/page/faq">Contact VisionNav Service</a></div>';
+    html += "<p>If none of the above solved it, check the FAQ for how to escalate internally at your site.</p>";
+    html += '<a class="vn-btn" href="#/page/faq">Open FAQ</a></div>';
 
     app.innerHTML = html;
 
@@ -166,7 +166,7 @@
     }
     const matches = search(query).slice(0, 8);
     if (matches.length === 0) {
-      resultsEl.innerHTML = '<div class="vn-search-empty">No results. Try different words, or <a href="#/page/faq">contact VisionNav Service</a>.</div>';
+      resultsEl.innerHTML = '<div class="vn-search-empty">No results. Try different words, or check the <a href="#/page/faq">FAQ</a>.</div>';
     } else {
       resultsEl.innerHTML = matches
         .map((p) => {
@@ -232,7 +232,7 @@
       html += '<div class="vn-article-body">' + bodyHtml + "</div>";
 
       html += '<div class="vn-article-footer">';
-      html += '<p>Didn\'t solve it? <a href="#/page/faq">Contact VisionNav Service</a> with your AGV ID, alarm code, and a screenshot.</p>';
+      html += '<p>Didn\'t solve it? See <a href="#/page/faq">FAQ: Escalating an issue</a> for how to hand this off at your site.</p>';
       html += "</div>";
 
       app.innerHTML = html;
@@ -248,7 +248,7 @@
   }
 
   function resolveContentLink(currentFile, href) {
-    // href examples: "../operations/auto-manual-mode.md", "charging.md", "agv-status.md#contact-visionnav-service"
+    // href examples: "../operations/auto-manual-mode.md", "charging.md", "faq.md#escalating-an-issue"
     const [pathPart, hash] = href.split("#");
     const currentDir = currentFile.split("/").slice(0, -1); // e.g. ["troubleshooting"]
     const parts = currentDir.concat(pathPart.split("/"));
