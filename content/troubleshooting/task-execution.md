@@ -2,21 +2,42 @@
 title: Task Execution Problem
 severity: yellow
 accessLevel: 2
-alarmCode: TSK-601 / TSK-602
+alarmCode: See table below (ForkCollision, LoadSafetyCheckFail, NoGoodsDetected, etc.)
 ---
 
 ## Symptom
 
-AGV accepts a task from RCS but fails to complete it — it may stop mid-task, skip a step, fail to pick/drop a load, or show the task stuck "In Progress" indefinitely. This also covers fork and other mechanical action failures (pickup/drop-off not completing).
+AGV accepts a task from RCS but fails to complete it — it stops mid-task, fails a load/unload check, cannot find the expected cargo or storage location, or the task shows **Task Error** in RCS instead of progressing to Loaded / Unloaded / Completed (see [AGV Status](../reference/agv-status.md)).
 
 ## Alarm Code
 
-`TSK-601` — Task timeout / stuck in progress
-`TSK-602` — Load handling (fork/mechanism) fault
+This is the broadest category of alarm in the manual — most load/fork/cargo-detection faults land here. Common ones:
+
+| Code | Name | Meaning |
+|---|---|---|
+| 0x02400001 | ForkCollision | Fork collision — move the vehicle manually or clear obstacles |
+| 0x02400002 | Collision | Vehicle collision — drive manually or remove obstacles |
+| 0x02400010 | ForkObliquity | Fork inclination angle not zero when moving in/out |
+| 0x02400011 | LiftZCheckFail | Fork height verification failure |
+| 0x02400015 | GoodsWidthCheckFail | Cargo too wide |
+| 0x02400016 | GoodsHeightCheckFail | Cargo too high |
+| 0x0240001D | UnrecognizedBarcode | Cargo barcode not recognized |
+| 0x0240001E | LoadError | Fork press switches not pressed at the same time when loading |
+| 0x02400025 | UnloadSafetyCheckFail | Not enough space for cargo unloading |
+| 0x02400026 | LoadSafetyCheckFail | Cargo loading security exception (perception module) |
+| 0x02400027 | NoGoodsDetected | Cargo detection timeout — no cargo present |
+| 0x02400028 | GoodsDetected | Detected height doesn't match target (front-alignment unloading) |
+| 0x02400029 | NoStorageDetected | No storage location detected |
+| 0x0240002A | EarlyTouchGoods | Touching cargo too early |
+| 0x0240002B | LargeGoodsAngle | Excessive cargo angle |
+| 0x0240002C | LargeGoodsShift | Cargo shifted too far left/right |
+| 0x0240002F | NoneTargetBarcode | Target barcode not recognized |
+
+Full list: [Alarm Codes](../reference/alarm-codes.md).
 
 ## Severity
 
-🟡 Medium — impacts throughput; may indicate a load, station, or mechanical issue.
+🟡 Medium — impacts throughput and may indicate a load, station, or mechanical issue.
 
 ## Access Level
 
@@ -24,41 +45,42 @@ AGV accepts a task from RCS but fails to complete it — it may stop mid-task, s
 
 ## Possible Causes
 
-- Load (pallet/cart) is mispositioned at the pickup/drop-off point
-- Station sensor not detecting the load correctly
-- Fork or lifting mechanism fault or obstruction
-- Destination station is occupied or blocked
-- Task was sent with incorrect parameters (wrong station/load type)
+- Load (pallet/cargo) is mispositioned, oversized, angled, or shifted at the pickup point (`GoodsWidthCheckFail`, `GoodsHeightCheckFail`, `LargeGoodsAngle`, `LargeGoodsShift`)
+- No cargo actually present at the expected pickup point (`NoGoodsDetected`)
+- Cargo barcode is missing, damaged, or unreadable (`UnrecognizedBarcode`, `NoneTargetBarcode`)
+- Destination storage location doesn't have room, or isn't detected correctly (`UnloadSafetyCheckFail`, `NoStorageDetected`)
+- Fork mechanism didn't seat the load correctly (`ForkObliquity`, `LiftZCheckFail`, `LoadError`)
+- Physical collision with an obstacle at the fork or vehicle body (`ForkCollision`, `Collision`)
 
 ## Step-by-Step Troubleshooting
 
-1. **Check the AGV's physical state** — is it correctly positioned at the pickup/drop-off point, and is the fork/mechanism in a normal position?
-2. **Check the load** — is the pallet/cart present, correctly placed, and within spec (weight, size, position)?
-3. **Check the destination station** — confirm it is clear and not already occupied.
-4. **Check RCS task detail** for the specific step where the task is stuck.
-5. **If safe**, clear any physical obstruction around the fork/mechanism.
-6. **Cancel the task** in RCS (Supervisor action) if it cannot proceed, rather than leaving it stuck.
-7. **Manually verify load state** (is the load still on the AGV, on the station, or on the floor?) before reassigning.
+1. **Read the exact code** on the AGV screen or in RCS — the table above tells you which category of problem it is (cargo condition vs. destination vs. fork mechanism vs. collision).
+2. **Check the AGV's physical state** — is it correctly positioned at the pickup/drop-off point, and is the fork in a normal, level position?
+3. **Check the load** — is the pallet/cargo present, correctly placed, within size limits (max cargo dimensions per spec: 2000×2000×2500 mm), and is its barcode legible?
+4. **Check the destination location** — confirm it's clear, not already occupied, and matches what RCS expects.
+5. **If safe**, clear any physical obstruction around the fork/mechanism (`ForkCollision`/`Collision`).
+6. **Cancel the task** in RCS (Supervisor action) if it cannot proceed, rather than leaving it stuck in **Task Error**.
+7. **Manually verify load state** — is the load still on the AGV, on the station, or on the floor? — before reassigning.
 8. **Reassign or re-create the task** once the physical situation is confirmed safe and correct.
 
 ## Expected Result
 
-The physical obstruction or misalignment is cleared, the task either resumes or is safely cancelled, and a fresh task completes normally.
+The physical issue (cargo condition, destination, or fork position) is resolved, the task either resumes or is safely cancelled, and a fresh task progresses through Begin Execution → Loaded → Unloaded → Completed normally.
 
 ## If Not Solved
 
-If the fork/mechanism does not respond, makes abnormal noise, or the same task fails repeatedly at the same station, stop sending tasks to that station/AGV pairing and escalate.
+If the fork mechanism does not respond correctly, makes abnormal noise, or the same code fires repeatedly at the same station regardless of load condition, stop sending tasks to that station/AGV pairing and escalate — repeated `ForkObliquity`/`LiftZCheckFail`/`ForkCollision` in particular can indicate a mechanical issue, not a load-placement issue.
 
 ## Escalation
 
-Contact **VisionNav Service** for mechanical faults, repeated task failures, or anything involving physical damage risk.
+Fork/lift mechanism repairs and repeated task failures that aren't explained by load condition are handled by trained maintenance personnel, not resolved on the floor. Record the exact alarm name/code, the task ID, and station(s) involved, and hand off to your site's trained maintenance/repair personnel or your project's VisionNav-trained project team contact per your site's internal process.
 
 ## Information Required
 
 - AGV ID
 - Task ID
-- Alarm Code (TSK-601 / TSK-602)
+- Exact alarm name/code
 - Screenshot of RCS task detail
 - Station ID (pickup and destination)
-- Load description (type, approximate weight)
+- Load description (type, approximate size/weight)
 - Time of occurrence
