@@ -178,7 +178,7 @@ Planned upgrade paths (not built yet, kept here for context):
 
 To reuse this repository as a template for a new customer:
 
-1. Update `content/manifest.json` → `site.name`, `site.tagline`, and `site.contact`.
+1. Update `content/manifest.json` → `site.name` and `site.tagline`. (This template currently ships with no support-contact banner; add one back in `content/reference/faq.md` and the home page if/when the project stands up an official support channel.)
 2. Replace `assets/logo.svg` if a different brand mark is needed.
 3. Update alarm codes in `content/reference/alarm-codes.md` and the matching `manifest.json` entries to match the project's actual AGV fleet.
 4. Add/replace troubleshooting and operations articles to match the project's SOPs and AGV model(s).
