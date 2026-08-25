@@ -7,38 +7,24 @@ alarmCode: N/A
 
 ## General
 
-**Q: What should I try before contacting VisionNav Service?**
-A: Check this wiki first — search for your symptom (e.g. "AGV stopped", "laser alarm", "charging"). Most day-to-day issues are Level 1 operator fixes: resets, clearing a path, or a mode switch.
+**Q: What should I try before escalating?**
+A: Check this wiki first — search for your symptom (e.g. "AGV stopped", "laser alarm", "charging") or look up the exact alarm code in [Alarm Codes](alarm-codes.md). Most day-to-day issues are Level 1 operator fixes: checking for an obstacle, a mode switch, or a Reset.
 
 **Q: How do I know if I'm allowed to fix something myself?**
-A: Every article lists an **Access Level**. 🟢 Level 1 (Operator) issues are safe for any trained operator to handle. 🟡 Level 2 (Supervisor) issues should go to a supervisor. 🔴 Level 3 items (map, navigation parameters, safety parameters, RCS configuration, network configuration, software/database) must never be changed on site — always contact VisionNav Service.
+A: Every article lists an **Access Level**. 🟢 Level 1 (Operator) issues are safe for any trained operator to handle — the manual specifies operators can power the AGV on/off, switch Auto/Manual mode, Reset, Pause, and use Emergency Stop. 🟡 Level 2 (Supervisor) issues — cancelling/reassigning tasks, checking network status across multiple AGVs — should go to a supervisor. 🔴 Level 3 items (map edits, safety laser zone configuration, RCS/network configuration, task-feature/handling-solution configuration in RoboTune) must never be changed on site by operators or supervisors.
 
 **Q: I reset the AGV but the same alarm keeps coming back. What do I do?**
-A: Stop resetting it. Repeated resets can mask a real hardware or configuration issue. Note the alarm code, take a screenshot, and escalate to VisionNav Service.
+A: Stop resetting it. Repeated resets can mask a real hardware or configuration issue. Note the exact alarm name/code, take a screenshot, and escalate per your site's process (see below).
 
-**Q: The AGV shows "Blocked" — is that a fault?**
-A: No. `Blocked` just means the AGV's path is temporarily occupied. It should clear itself within seconds once the obstruction is gone. See [AGV Status](agv-status.md).
+**Q: What does it mean if a task shows "Task Error" in RCS?**
+A: It means the task didn't progress normally through Begin Execution → Loaded → Unloaded → Completed. Check the AGV itself for an active alarm code first — see [Task Execution Problem](../troubleshooting/task-execution.md) and [AGV Status](agv-status.md).
 
 **Q: Can I move a stopped AGV by hand?**
-A: Only in Manual mode, and only if you're trained to do so — see [Manual Driving](../operations/manual-driving.md). Never push or drag a powered AGV.
+A: Only in Manual mode, only after swiping the vehicle's ID card, and only if you're trained to do so — see [Manual Driving](../operations/manual-driving.md). Never push or drag a powered AGV, and never handle a load that hasn't been confirmed by your project.
 
-**Q: Who can log into RCS and what can they do?**
-A: RCS login and basic monitoring (checking AGV/task status) is typically a Supervisor (Level 2) function. Ask your site administrator about your account's permissions.
+**Q: Who is allowed to debug, configure, or repair the AGV?**
+A: Per the manual: trial runs and debugging are performed by the company's project team or designated partners; all maintenance and repair work is carried out by specially trained maintenance and repair personnel; and minimum age for any operator or repair role is 18. Day-to-day operation (power on/off, mode switching, Reset, Pause, E-Stop) is the only thing general operators are expected to do themselves.
 
-## Contact VisionNav Service
+## Escalating an issue
 
-When escalating, please have the following ready — this dramatically speeds up support:
-
-- **AGV ID**
-- **Alarm Code** (if any)
-- **Screenshot** of the AGV screen and/or RCS
-- **Location / Station ID**
-- **Task ID** (if applicable)
-- **Time of occurrence**
-
-**Contact:**
-- Phone: +86 400-XXX-XXXX
-- Email: service@visionnav.com
-- Hours: 24/7 for Level 3 emergencies, 09:00–18:00 (GMT+8) for general support
-
-*(Update these contact details for your specific project in `content/reference/faq.md` and `content/manifest.json`.)*
+This project does not currently have an online, network, or phone VisionNav technical support channel — there is no support hotline or support email to call. When you can't resolve something at your access level, escalate internally: record the exact alarm name/code, the AGV ID, a screenshot of the AGV screen and/or RCS, the location/station ID, the task ID (if applicable), and the time of occurrence, then hand this off to your site's trained maintenance/repair personnel or your project's VisionNav-trained project team contact, following your site's own internal escalation process.
