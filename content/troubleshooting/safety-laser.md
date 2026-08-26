@@ -22,6 +22,8 @@ Shown on AGV screen and RCS:
 
 1. Check front/side/rear — remove any person or object in the AGV's path
 2. Code is `LaserBreakdown`? → **Stop here** — hardware fault, do not reset, escalate now
-3. Code is `LaserClose`? → wipe laser lens with a dry cloth if dusty
+3. Code is `LaserClose`? → confirm exactly which laser tripped, then check right around it for anything fallen, blocking it, or dust (wipe the lens if dusty)
 4. Code is `LaserCloseDisabled` and no special zone active right now? → do not re-enable it yourself, escalate
-5. Path clear + code is `LaserClose` → [Reset](../operations/reset.md), then Start
+5. Path and laser confirmed clear → [Reset](../operations/reset.md), then Start
+6. Still trips at the same spot → manually move the AGV past that path segment, then Reset + Start to resume from there
+7. Still not resolved → [manually complete the task](../operations/manual-task-complete.md), then log the exact location + AGV ID and hand off per your site's process

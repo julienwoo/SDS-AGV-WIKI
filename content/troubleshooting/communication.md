@@ -26,3 +26,4 @@ Shown on AGV screen and RCS:
 3. One AGV, code is `NetworkError`/`ControlCenterCommunicationError`/`Network`/`ControlCenterCommunicateDelayed` → check AGV's Wi-Fi status on screen, check for known weak-signal area
 4. Wait 1–2 min — short-time codes often self-clear
 5. Code is `McuCommunicationError`/`McuCommunicationError1` → not a network issue, do not attempt a network fix, pull AGV from task pool and escalate
+6. Still fully offline after waiting → carrying a load? Have RCS [Manually Complete](../reference/rcs-ui-basics.md#4-task-and-order-states) the order first — then shut down and restart the AGV's onboard control (AGVpro). No load → just shut down and restart AGVpro directly

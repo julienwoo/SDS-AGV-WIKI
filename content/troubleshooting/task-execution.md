@@ -32,7 +32,7 @@ Full list: [Alarm Codes](../reference/alarm-codes.md)
 
 1. Read the exact code — cargo condition vs. destination vs. fork mechanism vs. collision
 2. Check AGV is correctly positioned at the pickup/drop-off point, fork level
-3. Check the load — present, correctly placed, barcode legible
+3. Check the load — present, correctly placed, barcode legible and squarely inside the scan zone (`UnrecognizedBarcode`/`NoneTargetBarcode`: reposition the barcode fully inside the scan area)
 4. Check destination location — clear, not already occupied
 5. Clear any physical obstruction around the fork (`ForkCollision`/`Collision`) if safe
 6. Can't proceed → cancel the task in RCS rather than leaving it stuck in Task Error
