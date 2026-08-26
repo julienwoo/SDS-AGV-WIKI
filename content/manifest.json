@@ -97,6 +97,17 @@
       "keywords": ["task execution problem", "task stuck", "task failed", "task not completing", "任务", "任务卡住", "任务失败", "job stuck", "mission failed", "fork problem", "mechanical problem", "fork / mechanical", "ForkCollision", "LoadSafetyCheckFail", "Task Error"]
     },
     {
+      "id": "perception-faults",
+      "category": "troubleshooting",
+      "file": "troubleshooting/perception-faults.md",
+      "title": "Perception System Faults",
+      "symptom": "AGV won't proceed even with a clear path — perception/vision system can't verify pallet or bin status.",
+      "alarmCode": "See fault names — no formal codes documented",
+      "severity": "yellow",
+      "accessLevel": 2,
+      "keywords": ["perception fault", "3d guard", "stereo protection", "adaptive picking", "adaptive space", "detection timeout", "感知故障", "立体防护", "自适应空间不足", "感知检测超时", "明眸库位状态异常", "托盘塑料膜"]
+    },
+    {
       "id": "startup",
       "category": "operations",
       "file": "operations/startup.md",
