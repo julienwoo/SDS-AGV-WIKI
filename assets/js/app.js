@@ -90,13 +90,17 @@
   function renderHome() {
     document.title = MANIFEST.site.name;
     renderSidebar(null);
-    const ts = pagesInCategory("troubleshooting");
-    const ops = pagesInCategory("operations");
-    const ref = pagesInCategory("reference");
 
-    function tile(p, icon) {
+    function tileIcon(p) {
+      if (p.category === "troubleshooting") {
+        return { red: "🔴", yellow: "🟡", green: "🟢" }[p.severity] || "🔴";
+      }
+      return "▶";
+    }
+
+    function tile(p) {
       return '<a class="vn-tile" href="#/page/' + p.id + '">' +
-        (icon || "") + " " + escapeHtml(p.title) +
+        tileIcon(p) + " " + escapeHtml(p.title) +
         '<span class="vn-tile-arrow">→</span></a>';
     }
 
@@ -109,17 +113,18 @@
     html += '<div class="vn-search-results" id="home-search-results"></div>';
     html += "</div></div>";
 
-    html += '<div class="vn-home-section"><h2>🚨 Troubleshooting</h2><div class="vn-tile-grid">';
-    ts.forEach((p) => (html += tile(p, "🔴")));
-    html += "</div></div>";
-
-    html += '<div class="vn-home-section"><h2>⚙️ Daily Operations</h2><div class="vn-tile-grid">';
-    ops.forEach((p) => (html += tile(p, "▶")));
-    html += "</div></div>";
-
-    html += '<div class="vn-home-section"><h2>📖 Reference</h2><div class="vn-tile-grid">';
-    ref.forEach((p) => (html += tile(p, "📄")));
-    html += "</div></div>";
+    // Category sections are driven entirely by manifest.json, so adding,
+    // renaming, or reordering a category (see content/manifest.json) shows
+    // up here automatically — no code change needed.
+    MANIFEST.categories.forEach((cat) => {
+      const pages = pagesInCategory(cat.id);
+      if (pages.length === 0) return;
+      html += '<div class="vn-home-section"><h2>' + cat.icon + " " + escapeHtml(cat.label) + "</h2>";
+      if (cat.description) html += '<p class="vn-section-desc">' + escapeHtml(cat.description) + "</p>";
+      html += '<div class="vn-tile-grid">';
+      pages.forEach((p) => (html += tile(p)));
+      html += "</div></div>";
+    });
 
     html += '<div class="vn-help-banner"><h2>🆘 Still have a problem?</h2>';
     html += "<p>If none of the above solved it, check the FAQ for how to escalate internally at your site.</p>";
@@ -231,9 +236,11 @@
 
       html += '<div class="vn-article-body">' + bodyHtml + "</div>";
 
-      html += '<div class="vn-article-footer">';
-      html += '<p>Didn\'t solve it? See <a href="#/page/faq">FAQ: Escalating an issue</a> for how to hand this off at your site.</p>';
-      html += "</div>";
+      if (page.category === "troubleshooting") {
+        html += '<div class="vn-article-footer">';
+        html += '<p>Still not resolved? Record the alarm code + AGV ID and hand off per your site\'s process — see <a href="#/page/faq">FAQ</a>.</p>';
+        html += "</div>";
+      }
 
       app.innerHTML = html;
       // fix relative links from markdown (../operations/x.md etc.) into hash routes
@@ -276,11 +283,20 @@
 
   // ---------- Router ----------
   function parseRoute() {
-    const hash = location.hash.replace(/^#/, "") || "/";
+    let hash = location.hash.replace(/^#/, "") || "/";
+    // A route can carry a same-page anchor after a second literal "#"
+    // (e.g. "#/page/site-workflows#to-reject-position") — location.hash
+    // includes everything from the first "#" onward, so split it off here.
+    let anchor = null;
+    const hashIdx = hash.indexOf("#");
+    if (hashIdx !== -1) {
+      anchor = hash.slice(hashIdx + 1);
+      hash = hash.slice(0, hashIdx);
+    }
     const segments = hash.split("/").filter(Boolean);
     if (segments.length === 0) return { name: "home" };
     if (segments[0] === "category" && segments[1]) return { name: "category", id: segments[1] };
-    if (segments[0] === "page" && segments[1]) return { name: "page", id: segments[1] };
+    if (segments[0] === "page" && segments[1]) return { name: "page", id: segments[1], anchor: anchor };
     return { name: "home" };
   }
 
@@ -288,10 +304,20 @@
     await loadManifest();
     closeMobileSidebar();
     const r = parseRoute();
+    if (r.name === "home") { window.scrollTo(0, 0); return renderHome(); }
+    if (r.name === "category") { window.scrollTo(0, 0); return renderCategory(r.id); }
+    if (r.name === "page") {
+      await renderArticle(r.id);
+      if (r.anchor) {
+        const el = document.getElementById(r.anchor);
+        if (el) el.scrollIntoView();
+        else window.scrollTo(0, 0);
+      } else {
+        window.scrollTo(0, 0);
+      }
+      return;
+    }
     window.scrollTo(0, 0);
-    if (r.name === "home") return renderHome();
-    if (r.name === "category") return renderCategory(r.id);
-    if (r.name === "page") return renderArticle(r.id);
     return renderNotFound();
   }
 

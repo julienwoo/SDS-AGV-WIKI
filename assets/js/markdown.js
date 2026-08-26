@@ -29,6 +29,14 @@
     return out;
   }
 
+  function slugify(text) {
+    return String(text)
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/[\s-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
   function parseTableBlock(lines, startIdx) {
     // lines[startIdx] is header row, lines[startIdx+1] is separator row (---|---)
     const headerCells = lines[startIdx].trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim());
@@ -75,7 +83,8 @@
         closeLists();
         const level = h[1].length + 1; // ## -> h3 within article body (h1 is page title)
         const clamped = Math.min(level, 6);
-        html += "<h" + clamped + ">" + inline(h[2]) + "</h" + clamped + ">";
+        const id = slugify(h[2]);
+        html += "<h" + clamped + ' id="' + id + '">' + inline(h[2]) + "</h" + clamped + ">";
         i++;
         continue;
       }
