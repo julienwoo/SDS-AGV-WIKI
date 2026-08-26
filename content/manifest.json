@@ -262,6 +262,17 @@
       "keywords": ["indicator lights", "tower light", "beacon", "light color meaning", "指示灯", "信号灯", "三色灯", "led meaning"]
     },
     {
+      "id": "rcs-ui-basics",
+      "category": "reference",
+      "file": "reference/rcs-ui-basics.md",
+      "title": "RCS UI Basic Concepts",
+      "symptom": "What the RCS UI's work state, operating mode, lock/unlock, order/task, and storagebin fields mean.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": ["rcs ui", "work state", "operating mode", "assignable", "unassignable", "lock", "unlock", "order status", "task status", "storagebin", "库位状态", "订单状态", "任务状态", "占用", "基础概念", "RCS界面"]
+    },
+    {
       "id": "faq",
       "category": "reference",
       "file": "reference/faq.md",
