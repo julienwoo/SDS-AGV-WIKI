@@ -7,7 +7,7 @@ alarmCode: All
 
 ## About this list
 
-This table is taken directly from the VNP15(VL)-66 Operation Manual, Appendix 7 ("List of Error Code Information"). The **Name** and **Code** columns are manual-verbatim. The AGV screen and RCS normally show the **Name** or the **Code** (hex) — use either to find the row below, then open the matching troubleshooting article if one exists.
+This table is taken directly from the VNP15(VL)-66 Operation Manual, Appendix 7 ("List of Error Code Information"). The **Name** and **Code** columns are manual-verbatim. The AGV screen and RCS normally show the **Name** or the **Code** (hex) — use either to find the row below. The **Related Article** links go to background reference pages with the full manual-based procedure; for the site's current day-to-day fault list, check [Troubleshooting](#/category/troubleshooting) first.
 
 If a code you see on-site is not in this table, do not guess at its meaning. Record the exact on-screen text and hex code and hand it to your site's trained maintenance/repair personnel or project team contact — see [FAQ](faq.md).
 
