@@ -5,6 +5,8 @@ accessLevel: 2
 alarmCode: See table below (ForkCollision, LoadSafetyCheckFail, NoGoodsDetected, etc.)
 ---
 
+📁 **Reference material** — full alarm-code detail, kept for lookup. Barcode-not-recognized specifically? → [Cargo Barcode Not Recognized](barcode-not-recognized.md) in Troubleshooting.
+
 ## Symptom
 
 - Accepts a task but stalls, fails a load/unload check, or can't find expected cargo/location

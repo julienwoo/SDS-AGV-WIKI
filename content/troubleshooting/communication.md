@@ -5,6 +5,8 @@ accessLevel: 2
 alarmCode: NetworkError 0x02300023 / ControlCenterCommunicationError 0x02300020
 ---
 
+📁 **Reference material** — full alarm-code detail, kept for lookup. For the current field procedure, see [AGV Disconnected](agv-disconnected.md) in Troubleshooting.
+
 ## Symptom
 
 - Shows offline/disconnected in RCS, status stops updating

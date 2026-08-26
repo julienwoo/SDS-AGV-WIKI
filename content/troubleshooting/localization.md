@@ -5,6 +5,8 @@ accessLevel: 2
 alarmCode: LowReliability 0x02300014 / OffPath 0x0230001B
 ---
 
+📁 **Reference material** — full alarm-code detail from the AGV manual, kept for lookup; not part of the current Troubleshooting quick-reference list.
+
 ## Symptom
 
 - AGV position on RCS map doesn't match its real position on the floor

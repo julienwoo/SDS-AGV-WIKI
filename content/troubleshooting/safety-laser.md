@@ -5,6 +5,8 @@ accessLevel: 1
 alarmCode: LaserBreakdown 0x02300021 / LaserClose 0x02100206 / LaserCloseDisabled 0x02200209
 ---
 
+📁 **Reference material** — full alarm-code detail, kept for lookup. For the current field procedure, see [Close-Range Laser Triggered](laser-triggered.md) in Troubleshooting.
+
 ## Symptom
 
 - Stops abruptly mid-travel

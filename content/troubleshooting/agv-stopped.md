@@ -5,6 +5,8 @@ accessLevel: 1
 alarmCode: StoppedLongTime / MainThreadTimeout / ManualMode / ControlRegionStop
 ---
 
+📁 **Reference material** — full alarm-code detail from the AGV manual, kept for lookup; not part of the current Troubleshooting quick-reference list.
+
 ## Symptom
 
 - Powered on, no obvious alarm, won't move or accept new tasks

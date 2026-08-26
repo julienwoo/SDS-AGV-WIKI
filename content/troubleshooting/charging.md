@@ -5,6 +5,8 @@ accessLevel: 1
 alarmCode: ChargingError 0x0240002D / RatherLowBattery 0x02400012 / LowBattery 0x02200103
 ---
 
+📁 **Reference material** — full alarm-code detail from the AGV manual, kept for lookup; not part of the current Troubleshooting quick-reference list.
+
 ## Symptom
 
 - Docked at charger but battery % not rising, or charging much slower than usual
