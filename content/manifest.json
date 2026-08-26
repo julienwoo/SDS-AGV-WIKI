@@ -26,86 +26,86 @@
       "id": "reference",
       "label": "Reference",
       "icon": "📖",
-      "description": "Alarm codes, status meanings, indicator lights and FAQ."
+      "description": "Alarm codes, status meanings, indicator lights, FAQ, and detailed background on older fault categories."
     }
   ],
   "pages": [
     {
-      "id": "agv-stopped",
+      "id": "barcode-not-recognized",
       "category": "troubleshooting",
-      "file": "troubleshooting/agv-stopped.md",
-      "title": "AGV Stopped / Not Moving",
-      "symptom": "Powered on, no obvious fault, won't move or accept tasks.",
-      "alarmCode": "StoppedLongTime / MainThreadTimeout / ManualMode / ControlRegionStop",
-      "severity": "red",
+      "file": "troubleshooting/barcode-not-recognized.md",
+      "title": "Cargo Barcode Not Recognized",
+      "symptom": "AGV stops at pickup, won't proceed with loading.",
+      "alarmCode": "UnrecognizedBarcode 0x0240001D / NoneTargetBarcode 0x0240002F",
+      "severity": "yellow",
       "accessLevel": 1,
-      "keywords": ["agv stopped", "not moving", "agv 不动", "不动", "停止", "无法移动", "stuck", "frozen", "won't move", "stopped moving", "no motion", "AGV停在原地"]
+      "keywords": ["barcode not recognized", "AGV扫不到码", "扫码", "条形码", "cargo barcode", "UnrecognizedBarcode", "NoneTargetBarcode", "scan fail"]
     },
     {
-      "id": "safety-laser",
+      "id": "laser-triggered",
       "category": "troubleshooting",
-      "file": "troubleshooting/safety-laser.md",
-      "title": "Safety Laser Alarm",
+      "file": "troubleshooting/laser-triggered.md",
+      "title": "Close-Range Laser Triggered",
       "symptom": "Stops abruptly mid-travel, red flashing light + alarm sound.",
-      "alarmCode": "LaserBreakdown 0x02300021 / LaserClose 0x02100206",
+      "alarmCode": "LaserClose 0x02100206",
       "severity": "red",
       "accessLevel": 1,
-      "keywords": ["safety laser alarm", "laser alarm", "laser", "safety field", "obstacle detected", "e-stop laser", "安全激光", "激光报警", "避障报警", "safety scanner", "LaserBreakdown", "LaserClose"]
+      "keywords": ["近距激光触发", "近距离激光", "laser triggered", "close-range laser", "LaserClose", "obstacle detected", "safety laser"]
     },
     {
-      "id": "localization",
+      "id": "agv-disconnected",
       "category": "troubleshooting",
-      "file": "troubleshooting/localization.md",
-      "title": "Localization Problem",
-      "symptom": "Position on RCS map doesn't match reality, or drifts off path.",
-      "alarmCode": "LowReliability 0x02300014 / OffPath 0x0230001B",
-      "severity": "red",
-      "accessLevel": 2,
-      "keywords": ["localization problem", "localization", "lost position", "position lost", "map error", "定位", "定位丢失", "定位异常", "偏航", "off path", "confidence low", "LowReliability", "OffPath"]
-    },
-    {
-      "id": "charging",
-      "category": "troubleshooting",
-      "file": "troubleshooting/charging.md",
-      "title": "Charging Problem",
-      "symptom": "Docked but battery % not rising, or drains fast in operation.",
-      "alarmCode": "ChargingError 0x0240002D / RatherLowBattery 0x02400012 / LowBattery 0x02200103",
-      "severity": "yellow",
-      "accessLevel": 1,
-      "keywords": ["charging problem", "charging", "not charging", "battery", "无法充电", "充电异常", "充电桩", "battery low", "charge fail", "charging station", "ChargingError", "RatherLowBattery"]
-    },
-    {
-      "id": "communication",
-      "category": "troubleshooting",
-      "file": "troubleshooting/communication.md",
-      "title": "Communication Problem",
+      "file": "troubleshooting/agv-disconnected.md",
+      "title": "AGV Disconnected",
       "symptom": "Shows offline/disconnected in RCS; AGV itself looks fine.",
-      "alarmCode": "NetworkError 0x02300023 / ControlCenterCommunicationError 0x02300020",
+      "alarmCode": "Shown as Offline / Disconnected in RCS Vehicle Status",
       "severity": "yellow",
       "accessLevel": 2,
-      "keywords": ["communication problem", "communication", "offline", "network", "disconnect", "wifi", "通信", "通信异常", "掉线", "网络问题", "lost connection", "rcs offline", "NetworkError", "McuCommunicationError"]
+      "keywords": ["AGV掉线", "掉线", "disconnected", "offline", "AGVpro", "restart AGVpro", "lost connection"]
     },
     {
-      "id": "task-execution",
+      "id": "pallet-wrap-3d-guard",
       "category": "troubleshooting",
-      "file": "troubleshooting/task-execution.md",
-      "title": "Task Execution Problem",
-      "symptom": "Accepts a task but stalls, fails a check, or shows Task Error.",
-      "alarmCode": "ForkCollision / LoadSafetyCheckFail / NoGoodsDetected / GoodsWidthCheckFail",
+      "file": "troubleshooting/pallet-wrap-3d-guard.md",
+      "title": "3D Guard Triggered by Pallet Wrap",
+      "symptom": "Stops even though the path looks clear — plastic wrap trips the 3D guard.",
+      "alarmCode": "No formal alarm code documented",
       "severity": "yellow",
-      "accessLevel": 2,
-      "keywords": ["task execution problem", "task stuck", "task failed", "task not completing", "任务", "任务卡住", "任务失败", "job stuck", "mission failed", "fork problem", "mechanical problem", "fork / mechanical", "ForkCollision", "LoadSafetyCheckFail", "Task Error"]
+      "accessLevel": 1,
+      "keywords": ["托盘塑料膜触发立体防护", "立体防护", "塑料膜", "3d guard", "stereo protection", "pallet wrap"]
     },
     {
-      "id": "perception-faults",
+      "id": "perception-timeout",
       "category": "troubleshooting",
-      "file": "troubleshooting/perception-faults.md",
-      "title": "Perception System Faults",
-      "symptom": "AGV won't proceed even with a clear path — perception/vision system can't verify pallet or bin status.",
-      "alarmCode": "See fault names — no formal codes documented",
+      "file": "troubleshooting/perception-timeout.md",
+      "title": "Perception Detection Timeout",
+      "symptom": "AGV times out trying to verify the pallet before pickup.",
+      "alarmCode": "No formal alarm code documented",
       "severity": "yellow",
       "accessLevel": 2,
-      "keywords": ["perception fault", "3d guard", "stereo protection", "adaptive picking", "adaptive space", "detection timeout", "感知故障", "立体防护", "自适应空间不足", "感知检测超时", "明眸库位状态异常", "托盘塑料膜"]
+      "keywords": ["感知检测超时", "感知超时", "perception timeout", "detection timeout", "pallet dimensions"]
+    },
+    {
+      "id": "storage-bin-mismatch",
+      "category": "troubleshooting",
+      "file": "troubleshooting/storage-bin-mismatch.md",
+      "title": "Storage Bin Status Mismatch",
+      "symptom": "Bin has cargo, but RCS reads it as empty.",
+      "alarmCode": "No formal alarm code documented",
+      "severity": "yellow",
+      "accessLevel": 1,
+      "keywords": ["明眸库位状态异常", "库位状态异常", "storage bin mismatch", "bin status", "明眸"]
+    },
+    {
+      "id": "adaptive-space-insufficient",
+      "category": "troubleshooting",
+      "file": "troubleshooting/adaptive-space-insufficient.md",
+      "title": "Insufficient Adaptive Insertion Space",
+      "symptom": "Can't find enough clearance to insert forks into a reachable pallet.",
+      "alarmCode": "No formal alarm code documented",
+      "severity": "yellow",
+      "accessLevel": 2,
+      "keywords": ["自适应空间不足", "自适应取放", "adaptive picking", "adaptive space", "insertion space", "fork clearance"]
     },
     {
       "id": "startup",
@@ -282,6 +282,72 @@
       "severity": "green",
       "accessLevel": 1,
       "keywords": ["rcs ui", "work state", "operating mode", "assignable", "unassignable", "lock", "unlock", "order status", "task status", "storagebin", "库位状态", "订单状态", "任务状态", "占用", "基础概念", "RCS界面"]
+    },
+    {
+      "id": "agv-stopped",
+      "category": "reference",
+      "file": "troubleshooting/agv-stopped.md",
+      "title": "AGV Stopped / Not Moving",
+      "symptom": "Background reference: powered on, no obvious fault, won't move or accept tasks.",
+      "alarmCode": "StoppedLongTime / MainThreadTimeout / ManualMode / ControlRegionStop",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": ["agv stopped", "not moving", "agv 不动", "不动", "停止", "无法移动", "stuck", "frozen", "won't move", "stopped moving", "no motion", "AGV停在原地"]
+    },
+    {
+      "id": "safety-laser",
+      "category": "reference",
+      "file": "troubleshooting/safety-laser.md",
+      "title": "Safety Laser Alarm",
+      "symptom": "Background reference: full laser alarm-code family (LaserBreakdown, LaserClose, LaserCloseDisabled).",
+      "alarmCode": "LaserBreakdown 0x02300021 / LaserClose 0x02100206 / LaserCloseDisabled 0x02200209",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": ["safety laser alarm", "laser alarm", "laser", "safety field", "obstacle detected", "e-stop laser", "安全激光", "激光报警", "避障报警", "safety scanner", "LaserBreakdown", "LaserClose"]
+    },
+    {
+      "id": "localization",
+      "category": "reference",
+      "file": "troubleshooting/localization.md",
+      "title": "Localization Problem",
+      "symptom": "Background reference: position on RCS map doesn't match reality, or drifts off path.",
+      "alarmCode": "LowReliability 0x02300014 / OffPath 0x0230001B",
+      "severity": "green",
+      "accessLevel": 2,
+      "keywords": ["localization problem", "localization", "lost position", "position lost", "map error", "定位", "定位丢失", "定位异常", "偏航", "off path", "confidence low", "LowReliability", "OffPath"]
+    },
+    {
+      "id": "charging",
+      "category": "reference",
+      "file": "troubleshooting/charging.md",
+      "title": "Charging Problem",
+      "symptom": "Background reference: docked but battery % not rising, or drains fast in operation.",
+      "alarmCode": "ChargingError 0x0240002D / RatherLowBattery 0x02400012 / LowBattery 0x02200103",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": ["charging problem", "charging", "not charging", "battery", "无法充电", "充电异常", "充电桩", "battery low", "charge fail", "charging station", "ChargingError", "RatherLowBattery"]
+    },
+    {
+      "id": "communication",
+      "category": "reference",
+      "file": "troubleshooting/communication.md",
+      "title": "Communication Problem",
+      "symptom": "Background reference: full network/communication alarm-code family.",
+      "alarmCode": "NetworkError 0x02300023 / ControlCenterCommunicationError 0x02300020",
+      "severity": "green",
+      "accessLevel": 2,
+      "keywords": ["communication problem", "communication", "offline", "network", "disconnect", "wifi", "通信", "通信异常", "掉线", "网络问题", "lost connection", "rcs offline", "NetworkError", "McuCommunicationError"]
+    },
+    {
+      "id": "task-execution",
+      "category": "reference",
+      "file": "troubleshooting/task-execution.md",
+      "title": "Task Execution Problem",
+      "symptom": "Background reference: full load/fork/cargo-detection alarm-code family.",
+      "alarmCode": "ForkCollision / LoadSafetyCheckFail / NoGoodsDetected / GoodsWidthCheckFail",
+      "severity": "green",
+      "accessLevel": 2,
+      "keywords": ["task execution problem", "task stuck", "task failed", "task not completing", "任务", "任务卡住", "任务失败", "job stuck", "mission failed", "fork problem", "mechanical problem", "fork / mechanical", "ForkCollision", "LoadSafetyCheckFail", "Task Error"]
     },
     {
       "id": "faq",
