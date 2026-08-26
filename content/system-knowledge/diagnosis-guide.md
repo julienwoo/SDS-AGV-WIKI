@@ -7,7 +7,7 @@ alarmCode: N/A
 
 ## The rule of thumb
 
-**An AGV alarm code showing on the vehicle or in RCS = a vehicle-level problem.** Go straight to the matching [Troubleshooting](../reference/alarm-codes.md) article.
+**An AGV alarm code showing on the vehicle or in RCS = a vehicle-level problem.** Check the current [Troubleshooting](#/category/troubleshooting) list, or look it up in the full [Alarm Codes](../reference/alarm-codes.md) reference.
 
 **A task is stuck, delayed, or behaving oddly with no AGV alarm code at all = probably an integration-level condition** — a WMS order, a Mujin signal, a conveyor signal, or a barcode mismatch, sitting upstream or downstream of the AGV. Read [Site Workflows](site-workflows.md) and [System Architecture Overview](architecture.md) before assuming the vehicle is broken.
 

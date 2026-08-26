@@ -36,5 +36,5 @@ Full state meanings: [AGV Status Meanings](../reference/agv-status.md).
 
 ## How to use this when something looks wrong
 
-- An **AGV alarm code is showing** → it's a vehicle-level problem. Go to the matching [Troubleshooting](../reference/alarm-codes.md) article.
+- An **AGV alarm code is showing** → it's a vehicle-level problem. Check the current [Troubleshooting](#/category/troubleshooting) list, or look it up in the full [Alarm Codes](../reference/alarm-codes.md) reference.
 - **No AGV alarm, but a task is stuck or nothing is happening** → it's more likely a WMS order that hasn't arrived, a Mujin/conveyor signal that hasn't come through, or a barcode mismatch redirecting the pallet to reject position. See [Diagnosing System-Level Issues](diagnosis-guide.md).
