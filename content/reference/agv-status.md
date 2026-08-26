@@ -9,6 +9,8 @@ alarmCode: N/A
 
 These come from the Operation Manual's audible-visual alarm table (Appendix 6) and the mode-switching sections (4.4/4.5) — they describe what state the vehicle control system itself is in, which is also what drives the tri-color light (see [Indicator Lights](indicator-lights.md)).
 
+Looking at this from the RCS screen instead? RCS has its own, separate **Vehicle Status** and **Operating Mode** fields — see [RCS UI Basic Concepts](rcs-ui-basics.md), sections 2 and 3. The two vocabularies don't map one-to-one.
+
 | Status | Meaning | Action Needed |
 |---|---|---|
 | Initialization | AGV is booting / starting its software | None — wait for it to reach Standby |
