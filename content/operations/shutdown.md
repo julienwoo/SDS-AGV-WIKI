@@ -38,7 +38,7 @@ AGV is safely parked, powered down per the level appropriate to the situation, a
 
 ## If Not Solved
 
-If the AGV cannot be moved to its parking location due to a fault, resolve the underlying fault first (see the relevant Troubleshooting article) before forcing a shutdown. If the AGV cannot be stopped in a controlled manner, use the Emergency Stop — see [Emergency Stop Recovery](emergency-stop.md).
+If the AGV cannot be moved to its parking location due to a fault, resolve the underlying fault first (check [Troubleshooting](#/category/troubleshooting) for a matching fault) before forcing a shutdown. If the AGV cannot be stopped in a controlled manner, use the Emergency Stop — see [Emergency Stop Recovery](emergency-stop.md).
 
 ## Escalation
 
