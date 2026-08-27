@@ -113,6 +113,14 @@
     html += '<div class="vn-search-results" id="home-search-results"></div>';
     html += "</div></div>";
 
+    const notice = MANIFEST.site.notice;
+    if (notice) {
+      html += '<div class="vn-notice-banner">';
+      html += "<h2>" + (notice.icon ? notice.icon + " " : "") + escapeHtml(notice.title || "") + "</h2>";
+      html += "<p>" + escapeHtml(notice.body || "") + "</p>";
+      html += "</div>";
+    }
+
     // Category sections are driven entirely by manifest.json, so adding,
     // renaming, or reordering a category (see content/manifest.json) shows
     // up here automatically — no code change needed.
@@ -127,8 +135,8 @@
     });
 
     html += '<div class="vn-help-banner"><h2>🆘 Still have a problem?</h2>';
-    html += "<p>If none of the above solved it, check the FAQ for how to escalate internally at your site.</p>";
-    html += '<a class="vn-btn" href="#/page/faq">Open FAQ</a></div>';
+    html += "<p>If none of the above solved it, record the alarm code and AGV ID and hand off per your site's escalation process.</p>";
+    html += "</div>";
 
     app.innerHTML = html;
 
@@ -171,7 +179,7 @@
     }
     const matches = search(query).slice(0, 8);
     if (matches.length === 0) {
-      resultsEl.innerHTML = '<div class="vn-search-empty">No results. Try different words, or check the <a href="#/page/faq">FAQ</a>.</div>';
+      resultsEl.innerHTML = '<div class="vn-search-empty">No results. Try different words, or check the current <a href="#/category/troubleshooting">Troubleshooting</a> list.</div>';
     } else {
       resultsEl.innerHTML = matches
         .map((p) => {
@@ -238,7 +246,7 @@
 
       if (page.category === "troubleshooting") {
         html += '<div class="vn-article-footer">';
-        html += '<p>Still not resolved? Record the alarm code + AGV ID and hand off per your site\'s process — see <a href="#/page/faq">FAQ</a>.</p>';
+        html += "<p>Still not resolved? Record the alarm code + AGV ID and hand off per your site's process.</p>";
         html += "</div>";
       }
 
@@ -255,7 +263,7 @@
   }
 
   function resolveContentLink(currentFile, href) {
-    // href examples: "../operations/auto-manual-mode.md", "charging.md", "faq.md#escalating-an-issue"
+    // href examples: "../operations/auto-manual-mode.md", "reset.md", "rcs-ui-basics.md#4-task-and-order-states"
     const [pathPart, hash] = href.split("#");
     const currentDir = currentFile.split("/").slice(0, -1); // e.g. ["troubleshooting"]
     const parts = currentDir.concat(pathPart.split("/"));
