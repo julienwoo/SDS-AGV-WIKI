@@ -7,7 +7,7 @@ alarmCode: N/A
 
 ## Symptom
 
-Daily procedure — not a fault. Use this when an AGV needs to be driven manually with the handheld device, for example to reposition it, move it out of a blocked area, or drive it back onto its path after an [Off-Path](../troubleshooting/localization.md) condition.
+Daily procedure — not a fault. Use this when an AGV needs to be driven manually with the handheld device, for example to reposition it, move it out of a blocked area, or drive it back onto its path after an off-path condition (see the `OffPath` row in [Alarm Codes](../reference/alarm-codes.md)).
 
 ## Access Level
 

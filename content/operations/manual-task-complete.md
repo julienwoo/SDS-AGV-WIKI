@@ -1,7 +1,7 @@
 ---
 title: Manually Complete a Task
 severity: green
-accessLevel: 2
+accessLevel: 1
 alarmCode: N/A
 ---
 
@@ -29,4 +29,4 @@ This only updates RCS's record of the task — it does not fix whatever caused t
 
 ## Access Level
 
-🟡 **Supervisor – Level 2** — this changes RCS task state and should not be done by an untrained operator.
+🟢 **Operator – Level 1** — trained operators only; this changes RCS task state, so confirm the precondition above before using it.

@@ -40,7 +40,7 @@ The charging station shows a green light, the AGV's battery percentage increases
 
 ## If Not Solved
 
-If the AGV does not begin charging once docked, or the station shows a yellow/red light instead of green, see [Charging Problem](../troubleshooting/charging.md).
+If the AGV does not begin charging once docked, or the station shows a yellow/red light instead of green, check the `ChargingError`/`LowBattery`/`RatherLowBattery` rows in [Alarm Codes](../reference/alarm-codes.md) and escalate per your site's process if it doesn't clear.
 
 ## Escalation
 

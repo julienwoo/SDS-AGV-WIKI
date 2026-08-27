@@ -1,7 +1,7 @@
 ---
 title: Manual Relocalization / Calibration
 severity: green
-accessLevel: 2
+accessLevel: 1
 alarmCode: N/A
 ---
 
@@ -21,4 +21,4 @@ The AGV's alarm text confirms this step is required after specific alarms (`Emer
 
 ## Access Level
 
-🟡 **Supervisor – Level 2** or above. This is not a routine operator action.
+🟢 **Operator – Level 1** — but not a routine action; only proceed if you're trained on RoboTune or your site's relocalization procedure, otherwise escalate.

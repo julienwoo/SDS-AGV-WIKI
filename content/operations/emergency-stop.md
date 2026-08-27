@@ -31,7 +31,7 @@ The VNP model has **four E-Stop button positions**, at the front and rear of the
 2. **Check the area around the AGV thoroughly** for people, obstacles, or any unsafe condition — check all four E-Stop positions, since more than one may have been pressed.
 3. **Confirm it is safe to resume.** If there was a genuine safety incident, do not proceed — report it through your site's safety process first.
 4. **Pull the E-Stop button back out** to release it. Per the manual, only pull it out once the danger has actually been cleared.
-5. **Manually calibrate/relocalize the vehicle if prompted** — the alarm text specifically calls for this after the danger is cleared, since a hard stop can affect the vehicle's confidence in its own position (see [Localization Problem](../troubleshooting/localization.md) if the alarm persists as a localization issue rather than clearing).
+5. **Manually calibrate/relocalize the vehicle if prompted** — the alarm text specifically calls for this after the danger is cleared, since a hard stop can affect the vehicle's confidence in its own position (see [Manual Relocalization / Calibration](manual-relocalization.md) if it doesn't clear on its own).
 6. **Reset the AGV** using the Reset button on the control panel to clear the alarm.
 7. **Confirm the tri-color light returns to normal** and RCS shows the AGV as available.
 8. **Switch to Auto mode** if needed and resume the task.
