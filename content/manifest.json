@@ -1,7 +1,12 @@
 {
   "site": {
     "name": "VisionNav AGV Customer Support Wiki",
-    "tagline": "Site Operation & Troubleshooting Guide"
+    "tagline": "Site Operation & Troubleshooting Guide",
+    "notice": {
+      "icon": "📋",
+      "title": "Interim Rollout Document",
+      "body": "A transitional resource for the first few weeks after go-live: a working list of common floor issues and fixes drawn from real day-to-day experience, meant to help the team get up to speed quickly — not a replacement for the official AGV and RCS user manuals, which remain the authoritative reference. This site is a living document and will be updated frequently as we learn more during this rollout period."
+    }
   },
   "categories": [
     {
@@ -26,7 +31,7 @@
       "id": "reference",
       "label": "Reference",
       "icon": "📖",
-      "description": "Alarm codes, status meanings, indicator lights, FAQ, and detailed background on older fault categories."
+      "description": "Alarm codes, status meanings, indicator lights, site best practices, and background reference material."
     }
   ],
   "pages": [
@@ -39,7 +44,16 @@
       "alarmCode": "UnrecognizedBarcode 0x0240001D / NoneTargetBarcode 0x0240002F",
       "severity": "yellow",
       "accessLevel": 1,
-      "keywords": ["barcode not recognized", "AGV扫不到码", "扫码", "条形码", "cargo barcode", "UnrecognizedBarcode", "NoneTargetBarcode", "scan fail"]
+      "keywords": [
+        "barcode not recognized",
+        "AGV扫不到码",
+        "扫码",
+        "条形码",
+        "cargo barcode",
+        "UnrecognizedBarcode",
+        "NoneTargetBarcode",
+        "scan fail"
+      ]
     },
     {
       "id": "laser-triggered",
@@ -50,18 +64,15 @@
       "alarmCode": "LaserClose 0x02100206",
       "severity": "red",
       "accessLevel": 1,
-      "keywords": ["近距激光触发", "近距离激光", "laser triggered", "close-range laser", "LaserClose", "obstacle detected", "safety laser"]
-    },
-    {
-      "id": "agv-disconnected",
-      "category": "troubleshooting",
-      "file": "troubleshooting/agv-disconnected.md",
-      "title": "AGV Disconnected",
-      "symptom": "Shows offline/disconnected in RCS; AGV itself looks fine.",
-      "alarmCode": "Shown as Offline / Disconnected in RCS Vehicle Status",
-      "severity": "yellow",
-      "accessLevel": 2,
-      "keywords": ["AGV掉线", "掉线", "disconnected", "offline", "AGVpro", "restart AGVpro", "lost connection"]
+      "keywords": [
+        "近距激光触发",
+        "近距离激光",
+        "laser triggered",
+        "close-range laser",
+        "LaserClose",
+        "obstacle detected",
+        "safety laser"
+      ]
     },
     {
       "id": "pallet-wrap-3d-guard",
@@ -72,7 +83,14 @@
       "alarmCode": "No formal alarm code documented",
       "severity": "yellow",
       "accessLevel": 1,
-      "keywords": ["托盘塑料膜触发立体防护", "立体防护", "塑料膜", "3d guard", "stereo protection", "pallet wrap"]
+      "keywords": [
+        "托盘塑料膜触发立体防护",
+        "立体防护",
+        "塑料膜",
+        "3d guard",
+        "stereo protection",
+        "pallet wrap"
+      ]
     },
     {
       "id": "perception-timeout",
@@ -82,8 +100,14 @@
       "symptom": "AGV times out trying to verify the pallet before pickup.",
       "alarmCode": "No formal alarm code documented",
       "severity": "yellow",
-      "accessLevel": 2,
-      "keywords": ["感知检测超时", "感知超时", "perception timeout", "detection timeout", "pallet dimensions"]
+      "accessLevel": 1,
+      "keywords": [
+        "感知检测超时",
+        "感知超时",
+        "perception timeout",
+        "detection timeout",
+        "pallet dimensions"
+      ]
     },
     {
       "id": "storage-bin-mismatch",
@@ -94,7 +118,13 @@
       "alarmCode": "No formal alarm code documented",
       "severity": "yellow",
       "accessLevel": 1,
-      "keywords": ["明眸库位状态异常", "库位状态异常", "storage bin mismatch", "bin status", "明眸"]
+      "keywords": [
+        "明眸库位状态异常",
+        "库位状态异常",
+        "storage bin mismatch",
+        "bin status",
+        "明眸"
+      ]
     },
     {
       "id": "adaptive-space-insufficient",
@@ -104,8 +134,15 @@
       "symptom": "Can't find enough clearance to insert forks into a reachable pallet.",
       "alarmCode": "No formal alarm code documented",
       "severity": "yellow",
-      "accessLevel": 2,
-      "keywords": ["自适应空间不足", "自适应取放", "adaptive picking", "adaptive space", "insertion space", "fork clearance"]
+      "accessLevel": 1,
+      "keywords": [
+        "自适应空间不足",
+        "自适应取放",
+        "adaptive picking",
+        "adaptive space",
+        "insertion space",
+        "fork clearance"
+      ]
     },
     {
       "id": "startup",
@@ -116,7 +153,15 @@
       "alarmCode": "N/A",
       "severity": "green",
       "accessLevel": 1,
-      "keywords": ["agv start-up", "startup", "power on", "开机", "启动", "start agv", "boot up"]
+      "keywords": [
+        "agv start-up",
+        "startup",
+        "power on",
+        "开机",
+        "启动",
+        "start agv",
+        "boot up"
+      ]
     },
     {
       "id": "shutdown",
@@ -127,7 +172,14 @@
       "alarmCode": "N/A",
       "severity": "green",
       "accessLevel": 1,
-      "keywords": ["agv shutdown", "shut down", "power off", "关机", "停机", "shutdown procedure"]
+      "keywords": [
+        "agv shutdown",
+        "shut down",
+        "power off",
+        "关机",
+        "停机",
+        "shutdown procedure"
+      ]
     },
     {
       "id": "auto-manual-mode",
@@ -138,7 +190,16 @@
       "alarmCode": "N/A",
       "severity": "green",
       "accessLevel": 1,
-      "keywords": ["auto manual mode", "auto mode", "manual mode", "mode switch", "自动模式", "手动模式", "模式切换", "switch mode"]
+      "keywords": [
+        "auto manual mode",
+        "auto mode",
+        "manual mode",
+        "mode switch",
+        "自动模式",
+        "手动模式",
+        "模式切换",
+        "switch mode"
+      ]
     },
     {
       "id": "emergency-stop",
@@ -149,7 +210,15 @@
       "alarmCode": "EmergencyStop 0x02400003",
       "severity": "red",
       "accessLevel": 1,
-      "keywords": ["emergency stop", "e-stop", "estop", "急停", "紧急停止", "release e-stop", "estop recovery"]
+      "keywords": [
+        "emergency stop",
+        "e-stop",
+        "estop",
+        "急停",
+        "紧急停止",
+        "release e-stop",
+        "estop recovery"
+      ]
     },
     {
       "id": "manual-driving",
@@ -160,7 +229,16 @@
       "alarmCode": "N/A",
       "severity": "green",
       "accessLevel": 1,
-      "keywords": ["manual driving", "joystick", "手动驾驶", "手柄", "drive manually", "remote control drive", "手动挪车", "move agv manually"]
+      "keywords": [
+        "manual driving",
+        "joystick",
+        "手动驾驶",
+        "手柄",
+        "drive manually",
+        "remote control drive",
+        "手动挪车",
+        "move agv manually"
+      ]
     },
     {
       "id": "charging-ops",
@@ -171,7 +249,14 @@
       "alarmCode": "N/A",
       "severity": "green",
       "accessLevel": 1,
-      "keywords": ["charging operation", "daily charging", "dock charging", "充电流程", "自动充电", "manual charging dock"]
+      "keywords": [
+        "charging operation",
+        "daily charging",
+        "dock charging",
+        "充电流程",
+        "自动充电",
+        "manual charging dock"
+      ]
     },
     {
       "id": "reset",
@@ -182,7 +267,14 @@
       "alarmCode": "N/A",
       "severity": "green",
       "accessLevel": 1,
-      "keywords": ["reset", "reset agv", "复位", "重置", "clear alarm", "clear error"]
+      "keywords": [
+        "reset",
+        "reset agv",
+        "复位",
+        "重置",
+        "clear alarm",
+        "clear error"
+      ]
     },
     {
       "id": "manual-task-complete",
@@ -192,8 +284,14 @@
       "symptom": "How to tell RCS a task was finished by hand after a severe fault.",
       "alarmCode": "N/A",
       "severity": "green",
-      "accessLevel": 2,
-      "keywords": ["manually complete task", "manual completion", "手动完成任务", "notify rcs task complete", "level 4 error"]
+      "accessLevel": 1,
+      "keywords": [
+        "manually complete task",
+        "manual completion",
+        "手动完成任务",
+        "notify rcs task complete",
+        "level 4 error"
+      ]
     },
     {
       "id": "manual-relocalization",
@@ -203,8 +301,15 @@
       "symptom": "What to do when the AGV needs its position manually re-established.",
       "alarmCode": "N/A",
       "severity": "green",
-      "accessLevel": 2,
-      "keywords": ["relocalization", "recalibrate", "手动标定", "手动重定位", "calibrate vehicle", "reposition"]
+      "accessLevel": 1,
+      "keywords": [
+        "relocalization",
+        "recalibrate",
+        "手动标定",
+        "手动重定位",
+        "calibrate vehicle",
+        "reposition"
+      ]
     },
     {
       "id": "system-architecture",
@@ -215,7 +320,15 @@
       "alarmCode": "N/A",
       "severity": "green",
       "accessLevel": 1,
-      "keywords": ["system architecture", "system overview", "how the system works", "RCS WMS", "系统架构", "系统原理", "整体架构"]
+      "keywords": [
+        "system architecture",
+        "system overview",
+        "how the system works",
+        "RCS WMS",
+        "系统架构",
+        "系统原理",
+        "整体架构"
+      ]
     },
     {
       "id": "site-workflows",
@@ -226,7 +339,18 @@
       "alarmCode": "N/A",
       "severity": "green",
       "accessLevel": 1,
-      "keywords": ["site workflows", "workflow", "putaway", "mujin", "conveyor", "reject position", "工作流", "流程", "拒收位", "现场流程"]
+      "keywords": [
+        "site workflows",
+        "workflow",
+        "putaway",
+        "mujin",
+        "conveyor",
+        "reject position",
+        "工作流",
+        "流程",
+        "拒收位",
+        "现场流程"
+      ]
     },
     {
       "id": "diagnosis-guide",
@@ -236,8 +360,15 @@
       "symptom": "How to tell an AGV fault apart from a WMS/RCS/Mujin/conveyor issue.",
       "alarmCode": "N/A",
       "severity": "green",
-      "accessLevel": 2,
-      "keywords": ["diagnosis", "system issue", "which system is at fault", "故障定位", "系统问题诊断", "判断故障层级"]
+      "accessLevel": 1,
+      "keywords": [
+        "diagnosis",
+        "system issue",
+        "which system is at fault",
+        "故障定位",
+        "系统问题诊断",
+        "判断故障层级"
+      ]
     },
     {
       "id": "alarm-codes",
@@ -248,7 +379,14 @@
       "alarmCode": "All",
       "severity": "green",
       "accessLevel": 1,
-      "keywords": ["alarm codes", "alarm list", "error codes", "报警代码", "故障代码", "alarm code table"]
+      "keywords": [
+        "alarm codes",
+        "alarm list",
+        "error codes",
+        "报警代码",
+        "故障代码",
+        "alarm code table"
+      ]
     },
     {
       "id": "agv-status",
@@ -259,7 +397,14 @@
       "alarmCode": "N/A",
       "severity": "green",
       "accessLevel": 1,
-      "keywords": ["agv status", "status meaning", "rcs status", "AGV状态", "状态说明", "idle busy charging status"]
+      "keywords": [
+        "agv status",
+        "status meaning",
+        "rcs status",
+        "AGV状态",
+        "状态说明",
+        "idle busy charging status"
+      ]
     },
     {
       "id": "indicator-lights",
@@ -270,7 +415,16 @@
       "alarmCode": "N/A",
       "severity": "green",
       "accessLevel": 1,
-      "keywords": ["indicator lights", "tower light", "beacon", "light color meaning", "指示灯", "信号灯", "三色灯", "led meaning"]
+      "keywords": [
+        "indicator lights",
+        "tower light",
+        "beacon",
+        "light color meaning",
+        "指示灯",
+        "信号灯",
+        "三色灯",
+        "led meaning"
+      ]
     },
     {
       "id": "rcs-ui-basics",
@@ -281,7 +435,24 @@
       "alarmCode": "N/A",
       "severity": "green",
       "accessLevel": 1,
-      "keywords": ["rcs ui", "work state", "operating mode", "assignable", "unassignable", "lock", "unlock", "order status", "task status", "storagebin", "库位状态", "订单状态", "任务状态", "占用", "基础概念", "RCS界面"]
+      "keywords": [
+        "rcs ui",
+        "work state",
+        "operating mode",
+        "assignable",
+        "unassignable",
+        "lock",
+        "unlock",
+        "order status",
+        "task status",
+        "storagebin",
+        "库位状态",
+        "订单状态",
+        "任务状态",
+        "占用",
+        "基础概念",
+        "RCS界面"
+      ]
     },
     {
       "id": "site-best-practices",
@@ -292,7 +463,25 @@
       "alarmCode": "N/A",
       "severity": "green",
       "accessLevel": 1,
-      "keywords": ["best practices", "site operation", "pallet handling", "forklift", "stacking", "barcode placement", "stretch wrap", "pallet placement", "non-standard pallet", "操作规范", "现场操作", "托盘堆叠", "拉伸膜", "缠膜", "条码粘贴", "预防故障", "非标托盘"]
+      "keywords": [
+        "best practices",
+        "site operation",
+        "pallet handling",
+        "forklift",
+        "stacking",
+        "barcode placement",
+        "stretch wrap",
+        "pallet placement",
+        "non-standard pallet",
+        "操作规范",
+        "现场操作",
+        "托盘堆叠",
+        "拉伸膜",
+        "缠膜",
+        "条码粘贴",
+        "预防故障",
+        "非标托盘"
+      ]
     },
     {
       "id": "agv-stopped",
@@ -303,73 +492,20 @@
       "alarmCode": "StoppedLongTime / MainThreadTimeout / ManualMode / ControlRegionStop",
       "severity": "green",
       "accessLevel": 1,
-      "keywords": ["agv stopped", "not moving", "agv 不动", "不动", "停止", "无法移动", "stuck", "frozen", "won't move", "stopped moving", "no motion", "AGV停在原地"]
-    },
-    {
-      "id": "safety-laser",
-      "category": "reference",
-      "file": "troubleshooting/safety-laser.md",
-      "title": "Safety Laser Alarm",
-      "symptom": "Background reference: full laser alarm-code family (LaserBreakdown, LaserClose, LaserCloseDisabled).",
-      "alarmCode": "LaserBreakdown 0x02300021 / LaserClose 0x02100206 / LaserCloseDisabled 0x02200209",
-      "severity": "green",
-      "accessLevel": 1,
-      "keywords": ["safety laser alarm", "laser alarm", "laser", "safety field", "obstacle detected", "e-stop laser", "安全激光", "激光报警", "避障报警", "safety scanner", "LaserBreakdown", "LaserClose"]
-    },
-    {
-      "id": "localization",
-      "category": "reference",
-      "file": "troubleshooting/localization.md",
-      "title": "Localization Problem",
-      "symptom": "Background reference: position on RCS map doesn't match reality, or drifts off path.",
-      "alarmCode": "LowReliability 0x02300014 / OffPath 0x0230001B",
-      "severity": "green",
-      "accessLevel": 2,
-      "keywords": ["localization problem", "localization", "lost position", "position lost", "map error", "定位", "定位丢失", "定位异常", "偏航", "off path", "confidence low", "LowReliability", "OffPath"]
-    },
-    {
-      "id": "charging",
-      "category": "reference",
-      "file": "troubleshooting/charging.md",
-      "title": "Charging Problem",
-      "symptom": "Background reference: docked but battery % not rising, or drains fast in operation.",
-      "alarmCode": "ChargingError 0x0240002D / RatherLowBattery 0x02400012 / LowBattery 0x02200103",
-      "severity": "green",
-      "accessLevel": 1,
-      "keywords": ["charging problem", "charging", "not charging", "battery", "无法充电", "充电异常", "充电桩", "battery low", "charge fail", "charging station", "ChargingError", "RatherLowBattery"]
-    },
-    {
-      "id": "communication",
-      "category": "reference",
-      "file": "troubleshooting/communication.md",
-      "title": "Communication Problem",
-      "symptom": "Background reference: full network/communication alarm-code family.",
-      "alarmCode": "NetworkError 0x02300023 / ControlCenterCommunicationError 0x02300020",
-      "severity": "green",
-      "accessLevel": 2,
-      "keywords": ["communication problem", "communication", "offline", "network", "disconnect", "wifi", "通信", "通信异常", "掉线", "网络问题", "lost connection", "rcs offline", "NetworkError", "McuCommunicationError"]
-    },
-    {
-      "id": "task-execution",
-      "category": "reference",
-      "file": "troubleshooting/task-execution.md",
-      "title": "Task Execution Problem",
-      "symptom": "Background reference: full load/fork/cargo-detection alarm-code family.",
-      "alarmCode": "ForkCollision / LoadSafetyCheckFail / NoGoodsDetected / GoodsWidthCheckFail",
-      "severity": "green",
-      "accessLevel": 2,
-      "keywords": ["task execution problem", "task stuck", "task failed", "task not completing", "任务", "任务卡住", "任务失败", "job stuck", "mission failed", "fork problem", "mechanical problem", "fork / mechanical", "ForkCollision", "LoadSafetyCheckFail", "Task Error"]
-    },
-    {
-      "id": "faq",
-      "category": "reference",
-      "file": "reference/faq.md",
-      "title": "Frequently Asked Questions",
-      "symptom": "Common questions from operators and supervisors.",
-      "alarmCode": "N/A",
-      "severity": "green",
-      "accessLevel": 1,
-      "keywords": ["faq", "frequently asked questions", "common questions", "常见问题", "questions"]
+      "keywords": [
+        "agv stopped",
+        "not moving",
+        "agv 不动",
+        "不动",
+        "停止",
+        "无法移动",
+        "stuck",
+        "frozen",
+        "won't move",
+        "stopped moving",
+        "no motion",
+        "AGV停在原地"
+      ]
     }
   ]
 }
