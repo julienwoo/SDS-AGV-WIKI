@@ -47,6 +47,6 @@ Irregular pallets (e.g., non-spec 4-way/4-hole pallets) should go through **manu
 
 Check compliance with Sections 2–5 first — these fault families are the most common downstream effect:
 
-- Perception/cargo-detection faults (excessive cargo angle/offset, barcode not recognized) → [Task Execution Problem](../troubleshooting/task-execution.md), [Cargo Barcode Not Recognized](../troubleshooting/barcode-not-recognized.md)
+- Perception/cargo-detection faults (excessive cargo angle/offset, barcode not recognized) → [Cargo Barcode Not Recognized](../troubleshooting/barcode-not-recognized.md), or check [Alarm Codes](../reference/alarm-codes.md) for other codes in this family
 - Safety protection triggers (close-range laser, control-region slowdown/stop) → [Close-Range Laser Triggered](../troubleshooting/laser-triggered.md), [AGV Stopped / Not Moving](../troubleshooting/agv-stopped.md)
-- Load/unload safety check failures (insufficient pickup clearance, loading/unloading safety exceptions) → [Task Execution Problem](../troubleshooting/task-execution.md), [Insufficient Adaptive Insertion Space](../troubleshooting/adaptive-space-insufficient.md)
+- Load/unload safety check failures (insufficient pickup clearance, loading/unloading safety exceptions) → [Insufficient Adaptive Insertion Space](../troubleshooting/adaptive-space-insufficient.md), or check [Alarm Codes](../reference/alarm-codes.md) for other codes in this family

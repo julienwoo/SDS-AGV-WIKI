@@ -35,7 +35,7 @@ Row 20 (short-range laser trigger) changes with what the AGV was doing the insta
 
 Section 4.6.6 of the manual gives this simpler summary, which is consistent with the table above for most states: vehicle moving forward = both lights solid green with a tick-tock sound; moving backward = both lights flashing green with a "reversing" announcement; turning left = left light flashing green, right light solid green; turning right = the mirror of that; on standby = both lights solid yellow, no sound; an abnormality (including the E-Stop being pressed) = both lights flashing slowly in red with an alarm sound.
 
-**Note on low battery:** this same summary section describes low battery as "both lights flash rapidly in red," which does not match Appendix 6 rows 18–19 above (yellow solid, low-battery voice, no red flashing). The manual itself is inconsistent between these two sections. Until this is confirmed on your specific AGV, treat **either** a rapid red flash **or** a steady yellow light accompanied by a spoken low-battery announcement as a low-battery signal, and go to [Charging Problem](../troubleshooting/charging.md) — do not assume only one of the two is valid.
+**Note on low battery:** this same summary section describes low battery as "both lights flash rapidly in red," which does not match Appendix 6 rows 18–19 above (yellow solid, low-battery voice, no red flashing). The manual itself is inconsistent between these two sections. Until this is confirmed on your specific AGV, treat **either** a rapid red flash **or** a steady yellow light accompanied by a spoken low-battery announcement as a low-battery signal, and dock it for [Charging](../operations/charging.md) — do not assume only one of the two is valid.
 
 ## Charging station lights (separate from the AGV's own lights)
 
@@ -53,4 +53,4 @@ The manual recommends checking the audible-visual alarm daily: when you open the
 
 ## If lights don't match this table
 
-Confirm the AGV ID and model, and treat any light/voice combination not listed here as an unknown state — do not guess. Record what you saw and hand off per your site's escalation process (see [FAQ](faq.md)).
+Confirm the AGV ID and model, and treat any light/voice combination not listed here as an unknown state — do not guess. Record what you saw and hand off per your site's escalation process.

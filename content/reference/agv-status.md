@@ -21,7 +21,7 @@ Looking at this from the RCS screen instead? RCS has its own, separate **Vehicle
 | Executing a task (moving) | AGV is driving to/from a task location | None — normal |
 | Automatic charging | AGV is docked at an automatic charging station | None — normal, see [Charging (Daily Operation)](../operations/charging.md) |
 | Manual charging | AGV is connected to a manual charger | None — normal during manual charging |
-| Low battery | Battery has dropped below the low-battery threshold | See [Charging Problem](../troubleshooting/charging.md) |
+| Low battery | Battery has dropped below the low-battery threshold | Dock and charge — see [Charging (Daily Operation)](../operations/charging.md) |
 | Level-3 error active | A serious fault has been triggered | Check the exact alarm code on screen; see [Alarm Codes](alarm-codes.md) and check [Troubleshooting](#/category/troubleshooting) for a matching fault |
 
 ## Task progress (from the site's RCS/WMS task flow)
