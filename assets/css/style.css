@@ -309,6 +309,27 @@ a:hover { text-decoration: underline; }
 .vn-help-banner h2 { margin: 0 0 8px; font-size: 16px; }
 .vn-help-banner .vn-btn { margin-top: 10px; }
 
+.vn-notice-banner {
+  max-width: 640px;
+  margin: 0 auto 8px;
+  padding: 16px 20px;
+  background: var(--vn-yellow-bg);
+  border: 1px solid var(--vn-yellow);
+  border-radius: 12px;
+  text-align: left;
+}
+.vn-notice-banner h2 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  color: var(--vn-yellow);
+}
+.vn-notice-banner p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
 .vn-btn {
   display: inline-block;
   background: var(--vn-blue);
