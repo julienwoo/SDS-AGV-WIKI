@@ -284,6 +284,17 @@
       "keywords": ["rcs ui", "work state", "operating mode", "assignable", "unassignable", "lock", "unlock", "order status", "task status", "storagebin", "库位状态", "订单状态", "任务状态", "占用", "基础概念", "RCS界面"]
     },
     {
+      "id": "site-best-practices",
+      "category": "reference",
+      "file": "reference/site-best-practices.md",
+      "title": "Site Operation Best Practices",
+      "symptom": "Daily pallet/cargo-handling practices for operators and forklift drivers that prevent common AGV faults.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": ["best practices", "site operation", "pallet handling", "forklift", "stacking", "barcode placement", "stretch wrap", "pallet placement", "non-standard pallet", "操作规范", "现场操作", "托盘堆叠", "拉伸膜", "缠膜", "条码粘贴", "预防故障", "非标托盘"]
+    },
+    {
       "id": "agv-stopped",
       "category": "reference",
       "file": "troubleshooting/agv-stopped.md",
