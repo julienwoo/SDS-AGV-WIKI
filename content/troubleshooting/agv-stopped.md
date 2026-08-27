@@ -32,6 +32,6 @@ Different code? → [Alarm Codes](../reference/alarm-codes.md)
 1. Check all 4 E-Stop positions (front + rear) — release if pressed → [Emergency Stop Recovery](../operations/emergency-stop.md)
 2. Confirm rotary switch is on **Auto** → [Auto / Manual Mode](../operations/auto-manual-mode.md)
 3. Clear anything blocking the path
-4. Check battery — critically low? → [Charging Problem](charging.md)
+4. Check battery — critically low? → dock and charge, see [Charging (Daily Operation)](../operations/charging.md)
 5. [Reset](../operations/reset.md) the AGV, then press Start
 6. Code was `ManualMode`? Reset is required before Auto resumes

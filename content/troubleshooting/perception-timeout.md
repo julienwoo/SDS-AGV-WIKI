@@ -1,7 +1,7 @@
 ---
 title: Perception Detection Timeout
 severity: yellow
-accessLevel: 2
+accessLevel: 1
 alarmCode: No formal alarm code documented — shown as fault name on RCS/AGV
 ---
 

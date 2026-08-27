@@ -18,7 +18,7 @@ Shown on AGV screen and RCS:
 
 - `LaserClose` (0x02100206) — object detected in the short-range zone
 
-Different code (`LaserBreakdown`, `LaserCloseDisabled`)? → [Safety Laser Alarm](safety-laser.md) (Reference)
+Different code (`LaserBreakdown`, `LaserCloseDisabled`)? → check [Alarm Codes](../reference/alarm-codes.md); `LaserBreakdown` is a hardware fault — stop and escalate, do not reset
 
 ## Recovery Steps
 

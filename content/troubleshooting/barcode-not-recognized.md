@@ -25,4 +25,4 @@ Shown on AGV screen and RCS:
 2. Reposition the barcode so it sits fully inside the scan area
 3. Retry the scan
 
-Broader load/fork-related fault, or a different code from this family? → [Task Execution Problem](task-execution.md) (Reference — full code table and legacy procedure)
+Broader load/fork-related fault, or a different code from this family? → check [Alarm Codes](../reference/alarm-codes.md) and escalate per your site's process.
