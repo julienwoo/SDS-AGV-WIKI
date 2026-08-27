@@ -5,6 +5,8 @@ accessLevel: 2
 alarmCode: No formal alarm code documented — shown as fault name on RCS/AGV
 ---
 
+🧭 **Prevention** — see Section 5 (Pallet Placement) of [Site Operation Best Practices](../reference/site-best-practices.md): correct lateral offset/angle before it reaches the AGV.
+
 ## Symptom
 
 - AGV stops trying to verify the pallet before pickup, even though nothing looks obviously wrong

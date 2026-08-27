@@ -7,6 +7,8 @@ alarmCode: See table below (ForkCollision, LoadSafetyCheckFail, NoGoodsDetected,
 
 📁 **Reference material** — full alarm-code detail, kept for lookup. Barcode-not-recognized specifically? → [Cargo Barcode Not Recognized](barcode-not-recognized.md) in Troubleshooting.
 
+🧭 **Prevention** — most of this family traces back to pallet/cargo prep — see [Site Operation Best Practices](../reference/site-best-practices.md).
+
 ## Symptom
 
 - Accepts a task but stalls, fails a load/unload check, or can't find expected cargo/location

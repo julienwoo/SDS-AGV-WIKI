@@ -5,6 +5,8 @@ accessLevel: 1
 alarmCode: UnrecognizedBarcode 0x0240001D / NoneTargetBarcode 0x0240002F
 ---
 
+🧭 **Prevention** — correct barcode placement (Section 3 of [Site Operation Best Practices](../reference/site-best-practices.md)) avoids most of these.
+
 ## Symptom
 
 - AGV stops at the pickup point and won't proceed with loading

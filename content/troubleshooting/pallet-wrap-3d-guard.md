@@ -5,6 +5,8 @@ accessLevel: 1
 alarmCode: No formal alarm code documented — shown as fault name on RCS/AGV
 ---
 
+🧭 **Prevention** — see Section 4 (Stretch Wrap Film) of [Site Operation Best Practices](../reference/site-best-practices.md): no loose or protruding film, fully adhered to the load.
+
 ## Symptom
 
 - AGV stops even though the path looks clear

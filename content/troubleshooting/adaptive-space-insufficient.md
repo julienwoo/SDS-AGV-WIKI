@@ -5,6 +5,8 @@ accessLevel: 2
 alarmCode: No formal alarm code documented — shown as fault name on RCS/AGV
 ---
 
+🧭 **Prevention** — see Section 5 (Pallet Placement) of [Site Operation Best Practices](../reference/site-best-practices.md): pallets flat, centered, and aligned to floor markings, especially under racking.
+
 ## Symptom
 
 - AGV can't find enough clearance to insert its forks into a pallet it can otherwise reach

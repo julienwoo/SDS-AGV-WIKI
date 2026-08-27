@@ -5,6 +5,8 @@ accessLevel: 1
 alarmCode: LaserClose 0x02100206
 ---
 
+🧭 **Prevention** — loose stretch wrap and misaligned pallets are common triggers; see Sections 4–5 of [Site Operation Best Practices](../reference/site-best-practices.md).
+
 ## Symptom
 
 - Stops abruptly mid-travel
