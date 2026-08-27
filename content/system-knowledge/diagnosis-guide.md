@@ -1,7 +1,7 @@
 ---
 title: Diagnosing System-Level Issues
 severity: green
-accessLevel: 2
+accessLevel: 1
 alarmCode: N/A
 ---
 
@@ -26,7 +26,7 @@ Check whether the conveyor has signaled `conveyorIsClear`. If it hasn't, the AGV
 Expected by design on the [Aranco Conveyor → Inbound Rack](site-workflows.md#5-aranco-conveyor-inbound-rack-area) workflow — WMS can send further orders before the current pallet clears the conveyor, so a queue is built in.
 
 **A task shows Begin Execution and never advances to Loaded.**
-Check whether RCS has actually dispatched an AGV to it at all (RCS-side), and whether that AGV shows a communication or motion alarm (AGV-side) — see [Communication Problem](../troubleshooting/communication.md) and [AGV Stopped / Not Moving](../troubleshooting/agv-stopped.md). If neither shows anything wrong, this is likely an RCS/WMS coordination issue rather than something fixable at the vehicle.
+Check whether RCS has actually dispatched an AGV to it at all (RCS-side), and whether that AGV shows a communication or motion alarm (AGV-side) — check [Alarm Codes](../reference/alarm-codes.md) and [AGV Stopped / Not Moving](../troubleshooting/agv-stopped.md). If neither shows anything wrong, this is likely an RCS/WMS coordination issue rather than something fixable at the vehicle.
 
 ## When you genuinely can't tell which layer it is
 
