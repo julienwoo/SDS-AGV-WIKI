@@ -7,19 +7,88 @@
  *   #/                                  -> home
  *   #/category/:categoryId              -> category listing
  *   #/page/:pageId                      -> article
+ *
+ * Bilingual support:
+ *   LANG ("en" | "zh") picks which content/<lang>/ tree is fetched and
+ *   which UI strings (STRINGS below) are shown. The language choice is
+ *   persisted in localStorage so it sticks across visits.
  */
 (function () {
-  const CONTENT_BASE = "content/";
+  function getStoredLang() {
+    try {
+      const v = window.localStorage.getItem("vn_lang");
+      if (v === "en" || v === "zh") return v;
+    } catch (e) {}
+    return "en";
+  }
+  function storeLang(lang) {
+    try { window.localStorage.setItem("vn_lang", lang); } catch (e) {}
+  }
+
+  let LANG = getStoredLang();
   let MANIFEST = null;
+
+  function contentBase() {
+    return "content/" + LANG + "/";
+  }
+
+  const STRINGS = {
+    en: {
+      headerSearchPlaceholder: "Search... (press Enter)",
+      homeSearchPlaceholder: "What do you need help with? e.g. AGV not moving, laser alarm, charging...",
+      homeLink: "🏠 Home",
+      breadcrumbHome: "Home",
+      loading: "Loading…",
+      noResults: 'No results. Try different words, or check the current <a href="#/category/troubleshooting">Troubleshooting</a> list.',
+      helpBannerTitle: "🆘 Still have a problem?",
+      helpBannerBody: "If none of the above solved it, record the alarm code and AGV ID and hand off per your site's escalation process.",
+      notFoundTitle: "Page not found",
+      returnHome: "Return home",
+      couldNotLoad: "Could not load this article.",
+      menuBtnLabel: "Open menu",
+      langBtnLabel: "中文",
+      langBtnTitle: "切换到中文",
+    },
+    zh: {
+      headerSearchPlaceholder: "搜索...(按回车)",
+      homeSearchPlaceholder: "需要什么帮助?例如:AGV 不动、激光报警、充电...",
+      homeLink: "🏠 首页",
+      breadcrumbHome: "首页",
+      loading: "加载中…",
+      noResults: '未找到结果。请尝试其他关键词,或查看当前的<a href="#/category/troubleshooting">故障排查</a>列表。',
+      helpBannerTitle: "🆘 问题仍未解决?",
+      helpBannerBody: "如果以上内容都无法解决问题,请记录报警代码和 AGV 编号,并按现场升级流程上报。",
+      notFoundTitle: "页面未找到",
+      returnHome: "返回首页",
+      couldNotLoad: "无法加载该文章。",
+      menuBtnLabel: "打开菜单",
+      langBtnLabel: "English",
+      langBtnTitle: "Switch to English",
+    },
+  };
+
+  function t(key) {
+    return (STRINGS[LANG] && STRINGS[LANG][key]) || (STRINGS.en[key] || "");
+  }
 
   const app = document.getElementById("app");
 
   function severityLabel(sev) {
+    if (LANG === "zh") {
+      return { red: "🔴 严重", yellow: "🟡 需注意", green: "🟢 正常" }[sev] || sev;
+    }
     return { red: "🔴 Critical", yellow: "🟡 Attention", green: "🟢 Normal" }[sev] || sev;
   }
 
   function levelLabel(lvl) {
     const n = String(lvl);
+    if (LANG === "zh") {
+      return {
+        "1": "🟢 操作员 – 1 级",
+        "2": "🟡 主管 – 2 级",
+        "3": "🔴 VisionNav 服务 – 3 级",
+      }[n] || "级别 " + n;
+    }
     return {
       "1": "🟢 Operator – Level 1",
       "2": "🟡 Supervisor – Level 2",
@@ -33,7 +102,7 @@
 
   async function loadManifest() {
     if (MANIFEST) return MANIFEST;
-    const res = await fetch(CONTENT_BASE + "manifest.json", { cache: "no-cache" });
+    const res = await fetch(contentBase() + "manifest.json", { cache: "no-cache" });
     MANIFEST = await res.json();
     return MANIFEST;
   }
@@ -53,7 +122,7 @@
   // ---------- Sidebar ----------
   function renderSidebar(activePageId) {
     const sidebar = document.getElementById("sidebar");
-    let html = '<a href="#/" class="vn-home-link">🏠 Home</a>';
+    let html = '<a href="#/" class="vn-home-link">' + t("homeLink") + "</a>";
     MANIFEST.categories.forEach((cat) => {
       html += "<h3>" + cat.icon + " " + cat.label + "</h3>";
       pagesInCategory(cat.id).forEach((p) => {
@@ -74,7 +143,7 @@
   // ---------- Breadcrumb ----------
   function renderBreadcrumb(parts) {
     // parts: [{label, href}] last one has no href (current)
-    let html = '<a href="#/">Home</a>';
+    let html = '<a href="#/">' + t("breadcrumbHome") + "</a>";
     parts.forEach((p, idx) => {
       html += '<span class="sep">&rsaquo;</span>';
       if (p.href && idx !== parts.length - 1) {
@@ -109,7 +178,7 @@
     html += '<p class="vn-tagline">' + escapeHtml(MANIFEST.site.tagline) + "</p>";
     html += '<div class="vn-search-box">';
     html += '<span class="icon">🔍</span>';
-    html += '<input id="home-search" type="text" placeholder="What do you need help with? e.g. AGV not moving, laser alarm, charging..." autocomplete="off" />';
+    html += '<input id="home-search" type="text" placeholder="' + escapeHtml(t("homeSearchPlaceholder")) + '" autocomplete="off" />';
     html += '<div class="vn-search-results" id="home-search-results"></div>';
     html += "</div></div>";
 
@@ -122,8 +191,8 @@
     }
 
     // Category sections are driven entirely by manifest.json, so adding,
-    // renaming, or reordering a category (see content/manifest.json) shows
-    // up here automatically — no code change needed.
+    // renaming, or reordering a category (see content/<lang>/manifest.json)
+    // shows up here automatically — no code change needed.
     MANIFEST.categories.forEach((cat) => {
       const pages = pagesInCategory(cat.id);
       if (pages.length === 0) return;
@@ -134,8 +203,8 @@
       html += "</div></div>";
     });
 
-    html += '<div class="vn-help-banner"><h2>🆘 Still have a problem?</h2>';
-    html += "<p>If none of the above solved it, record the alarm code and AGV ID and hand off per your site's escalation process.</p>";
+    html += '<div class="vn-help-banner"><h2>' + t("helpBannerTitle") + "</h2>";
+    html += "<p>" + t("helpBannerBody") + "</p>";
     html += "</div>";
 
     app.innerHTML = html;
@@ -179,7 +248,7 @@
     }
     const matches = search(query).slice(0, 8);
     if (matches.length === 0) {
-      resultsEl.innerHTML = '<div class="vn-search-empty">No results. Try different words, or check the current <a href="#/category/troubleshooting">Troubleshooting</a> list.</div>';
+      resultsEl.innerHTML = '<div class="vn-search-empty">' + t("noResults") + "</div>";
     } else {
       resultsEl.innerHTML = matches
         .map((p) => {
@@ -217,10 +286,10 @@
     renderSidebar(pageId);
     const cat = categoryById(page.category);
 
-    app.innerHTML = '<div class="vn-loading">Loading…</div>';
+    app.innerHTML = '<div class="vn-loading">' + t("loading") + "</div>";
 
     try {
-      const res = await fetch(CONTENT_BASE + page.file, { cache: "no-cache" });
+      const res = await fetch(contentBase() + page.file, { cache: "no-cache" });
       if (!res.ok) throw new Error("Not found");
       const raw = await res.text();
       const { meta, body } = window.VNMarkdown.parseFrontmatter(raw);
@@ -244,12 +313,6 @@
 
       html += '<div class="vn-article-body">' + bodyHtml + "</div>";
 
-      if (page.category === "troubleshooting") {
-        html += '<div class="vn-article-footer">';
-        html += "<p>Still not resolved? Record the alarm code + AGV ID and hand off per your site's process.</p>";
-        html += "</div>";
-      }
-
       app.innerHTML = html;
       // fix relative links from markdown (../operations/x.md etc.) into hash routes
       app.querySelectorAll(".vn-article-body a[href$='.md'], .vn-article-body a[href*='.md#']").forEach((a) => {
@@ -258,7 +321,7 @@
         if (clean) a.setAttribute("href", clean);
       });
     } catch (err) {
-      app.innerHTML = '<div class="vn-error">Could not load this article. <a href="#/">Return home</a>.</div>';
+      app.innerHTML = '<div class="vn-error">' + t("couldNotLoad") + ' <a href="#/">' + t("returnHome") + "</a>.</div>";
     }
   }
 
@@ -286,7 +349,7 @@
   }
 
   function renderNotFound() {
-    app.innerHTML = '<div class="vn-error"><h1>Page not found</h1><p><a href="#/">Return home</a></p></div>';
+    app.innerHTML = '<div class="vn-error"><h1>' + t("notFoundTitle") + '</h1><p><a href="#/">' + t("returnHome") + "</a></p></div>";
   }
 
   // ---------- Router ----------
@@ -351,11 +414,42 @@
     });
   }
 
+  // ---------- Static UI text (header/footer chrome outside the router) ----------
+  function applyStaticStrings() {
+    document.documentElement.lang = LANG === "zh" ? "zh-CN" : "en";
+    const menuBtn = document.getElementById("menu-btn");
+    if (menuBtn) menuBtn.setAttribute("aria-label", t("menuBtnLabel"));
+    const headerInput = document.getElementById("header-search-input");
+    if (headerInput) headerInput.setAttribute("placeholder", t("headerSearchPlaceholder"));
+    const langBtn = document.getElementById("lang-btn");
+    if (langBtn) {
+      langBtn.textContent = t("langBtnLabel");
+      langBtn.setAttribute("title", t("langBtnTitle"));
+      langBtn.setAttribute("aria-label", t("langBtnTitle"));
+    }
+  }
+
+  // ---------- Language toggle ----------
+  function toggleLang() {
+    LANG = LANG === "zh" ? "en" : "zh";
+    storeLang(LANG);
+    MANIFEST = null;
+    applyStaticStrings();
+    route();
+  }
+
+  function setupLangToggle() {
+    const langBtn = document.getElementById("lang-btn");
+    if (langBtn) langBtn.addEventListener("click", toggleLang);
+  }
+
   window.addEventListener("hashchange", route);
   document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("menu-btn").addEventListener("click", toggleMobileSidebar);
     document.getElementById("sidebar-overlay").addEventListener("click", closeMobileSidebar);
     setupHeaderSearch();
+    setupLangToggle();
+    applyStaticStrings();
     route();
   });
 })();
