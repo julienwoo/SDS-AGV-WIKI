@@ -1,0 +1,469 @@
+{
+  "site": {
+    "name": "VisionNav AGV Customer Support Wiki",
+    "tagline": "Site Operation & Troubleshooting Guide",
+    "notice": {
+      "icon": "📋",
+      "title": "Interim Rollout Document",
+      "body": "A transitional resource for the first few weeks after go-live: a working list of common floor issues and fixes drawn from real day-to-day experience, meant to help the team get up to speed quickly — not a replacement for the official AGV and RCS user manuals, which remain the authoritative reference. This site is a living document and will be updated frequently as we learn more during this rollout period."
+    }
+  },
+  "categories": [
+    {
+      "id": "troubleshooting",
+      "label": "Troubleshooting",
+      "icon": "🚨",
+      "description": "Fast fault recovery: symptom, alarm, steps. Built for the floor, not for reading at a desk."
+    },
+    {
+      "id": "operations",
+      "label": "Basic Operations",
+      "icon": "⚙️",
+      "description": "The building-block actions used on their own, and linked to from Troubleshooting steps."
+    },
+    {
+      "id": "system-knowledge",
+      "label": "System Knowledge",
+      "icon": "🧭",
+      "description": "How RCS, WMS, the AGVs, Mujin cells and conveyors fit together — for diagnosing issues bigger than one vehicle."
+    },
+    {
+      "id": "reference",
+      "label": "Reference",
+      "icon": "📖",
+      "description": "Alarm codes, status meanings, indicator lights, site best practices, and background reference material."
+    }
+  ],
+  "pages": [
+    {
+      "id": "barcode-not-recognized",
+      "category": "troubleshooting",
+      "file": "troubleshooting/barcode-not-recognized.md",
+      "title": "Cargo Barcode Not Recognized",
+      "symptom": "AGV stops at pickup, won't proceed with loading.",
+      "alarmCode": "UnrecognizedBarcode 0x0240001D / NoneTargetBarcode 0x0240002F",
+      "severity": "yellow",
+      "accessLevel": 1,
+      "keywords": [
+        "barcode not recognized",
+        "AGV扫不到码",
+        "扫码",
+        "条形码",
+        "cargo barcode",
+        "UnrecognizedBarcode",
+        "NoneTargetBarcode",
+        "scan fail"
+      ]
+    },
+    {
+      "id": "laser-triggered",
+      "category": "troubleshooting",
+      "file": "troubleshooting/laser-triggered.md",
+      "title": "Close-Range Laser Triggered",
+      "symptom": "Stops abruptly mid-travel, red flashing light + alarm sound.",
+      "alarmCode": "LaserClose 0x02100206",
+      "severity": "red",
+      "accessLevel": 1,
+      "keywords": [
+        "近距激光触发",
+        "近距离激光",
+        "laser triggered",
+        "close-range laser",
+        "laser close-range trigger",
+        "LaserClose",
+        "obstacle detected",
+        "safety laser"
+      ]
+    },
+    {
+      "id": "pallet-wrap-3d-guard",
+      "category": "troubleshooting",
+      "file": "troubleshooting/pallet-wrap-3d-guard.md",
+      "title": "3D Protection Close-Range Trigger",
+      "symptom": "Stops even though the path looks clear — loose wrap or paper trips the 3D guard.",
+      "alarmCode": "No formal alarm code documented",
+      "severity": "yellow",
+      "accessLevel": 1,
+      "keywords": [
+        "立体防护触发",
+        "托盘塑料膜触发立体防护",
+        "立体防护",
+        "塑料膜",
+        "3d guard",
+        "3D protection close-range trigger",
+        "stereo protection",
+        "pallet wrap"
+      ]
+    },
+    {
+      "id": "perception-timeout",
+      "category": "troubleshooting",
+      "file": "troubleshooting/perception-timeout.md",
+      "title": "Cargo Detection Timeout",
+      "symptom": "AGV times out trying to detect the cargo before pickup.",
+      "alarmCode": "NoGoodsDetected 0x02400027",
+      "severity": "yellow",
+      "accessLevel": 1,
+      "keywords": [
+        "货物检测超时",
+        "感知检测超时",
+        "感知超时",
+        "perception timeout",
+        "cargo detection timeout",
+        "NoGoodsDetected",
+        "pallet dimensions"
+      ]
+    },
+    {
+      "id": "storage-bin-mismatch",
+      "category": "troubleshooting",
+      "file": "troubleshooting/storage-bin-mismatch.md",
+      "title": "Storage Bin Status Mismatch",
+      "symptom": "AGV about to deliver to a bin the vision camera shows as already occupied.",
+      "alarmCode": "No formal alarm code documented",
+      "severity": "yellow",
+      "accessLevel": 1,
+      "keywords": [
+        "明眸库位状态异常",
+        "库位状态异常",
+        "storage bin mismatch",
+        "bin status",
+        "明眸",
+        "occupied bin"
+      ]
+    },
+    {
+      "id": "power-on-off",
+      "category": "operations",
+      "file": "operations/power-on-off.md",
+      "title": "AGV Power On / Off",
+      "symptom": "Daily procedure to power an AGV on and off.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "agv start-up",
+        "startup",
+        "power on",
+        "power off",
+        "开机",
+        "关机",
+        "启动",
+        "停机",
+        "initialization",
+        "初始化",
+        "start agv",
+        "boot up",
+        "shutdown procedure"
+      ]
+    },
+    {
+      "id": "pallet-dimensions",
+      "category": "operations",
+      "file": "operations/pallet-dimensions.md",
+      "title": "Pallet & Cargo Dimensions",
+      "symptom": "Reference: standard pallet/cargo sizes and orientation rules for this project.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "pallet dimensions",
+        "cargo dimensions",
+        "托盘尺寸",
+        "货物尺寸",
+        "1.4米托盘",
+        "long side",
+        "short side",
+        "pallet orientation",
+        "托盘朝向"
+      ]
+    },
+    {
+      "id": "auto-manual-mode",
+      "category": "operations",
+      "file": "operations/auto-manual-mode.md",
+      "title": "Auto / Manual Mode Switching",
+      "symptom": "How to switch an AGV between Automatic and Manual driving mode.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "auto manual mode",
+        "auto mode",
+        "manual mode",
+        "mode switch",
+        "自动模式",
+        "手动模式",
+        "模式切换",
+        "switch mode"
+      ]
+    },
+    {
+      "id": "emergency-stop",
+      "category": "operations",
+      "file": "operations/emergency-stop.md",
+      "title": "Emergency Stop Recovery",
+      "symptom": "How to safely release an emergency stop (E-Stop) and resume operation.",
+      "alarmCode": "EmergencyStop 0x02400003",
+      "severity": "red",
+      "accessLevel": 1,
+      "keywords": [
+        "emergency stop",
+        "e-stop",
+        "estop",
+        "急停",
+        "紧急停止",
+        "release e-stop",
+        "estop recovery",
+        "safety rule",
+        "安全规则"
+      ]
+    },
+    {
+      "id": "manual-driving",
+      "category": "operations",
+      "file": "operations/manual-driving.md",
+      "title": "Manual Driving",
+      "symptom": "How to safely drive an AGV manually using the handheld/joystick controls.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "manual driving",
+        "joystick",
+        "手动驾驶",
+        "手柄",
+        "drive manually",
+        "remote control drive",
+        "手动挪车",
+        "move agv manually"
+      ]
+    },
+    {
+      "id": "reset",
+      "category": "operations",
+      "file": "operations/reset.md",
+      "title": "Reset the AGV",
+      "symptom": "How and when to use the Reset button to clear an alarm/status.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "reset",
+        "reset agv",
+        "复位",
+        "重置",
+        "clear alarm",
+        "clear error"
+      ]
+    },
+    {
+      "id": "manual-task-complete",
+      "category": "operations",
+      "file": "operations/manual-task-complete.md",
+      "title": "Manually Complete a Task",
+      "symptom": "How to tell RCS a task was finished by hand after a severe fault.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "manually complete task",
+        "manual completion",
+        "手动完成任务",
+        "notify rcs task complete",
+        "level 4 error"
+      ]
+    },
+    {
+      "id": "manual-relocalization",
+      "category": "operations",
+      "file": "operations/manual-relocalization.md",
+      "title": "Manual Relocalization / Calibration",
+      "symptom": "What to do when the AGV needs its position manually re-established.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "relocalization",
+        "recalibrate",
+        "手动标定",
+        "手动重定位",
+        "calibrate vehicle",
+        "reposition"
+      ]
+    },
+    {
+      "id": "system-architecture",
+      "category": "system-knowledge",
+      "file": "system-knowledge/architecture.md",
+      "title": "System Architecture Overview",
+      "symptom": "How RCS, WMS, AGVs, Mujin cells and conveyors relate to each other.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "system architecture",
+        "system overview",
+        "how the system works",
+        "RCS WMS",
+        "系统架构",
+        "系统原理",
+        "整体架构"
+      ]
+    },
+    {
+      "id": "site-workflows",
+      "category": "system-knowledge",
+      "file": "system-knowledge/site-workflows.md",
+      "title": "Site Workflows",
+      "symptom": "Step-by-step walkthroughs of this project's real material-flow workflows.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "site workflows",
+        "workflow",
+        "putaway",
+        "mujin",
+        "conveyor",
+        "reject position",
+        "工作流",
+        "流程",
+        "拒收位",
+        "现场流程"
+      ]
+    },
+    {
+      "id": "diagnosis-guide",
+      "category": "system-knowledge",
+      "file": "system-knowledge/diagnosis-guide.md",
+      "title": "Diagnosing System-Level Issues",
+      "symptom": "How to tell an AGV fault apart from a WMS/RCS/Mujin/conveyor issue.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "diagnosis",
+        "system issue",
+        "which system is at fault",
+        "故障定位",
+        "系统问题诊断",
+        "判断故障层级"
+      ]
+    },
+    {
+      "id": "alarm-codes",
+      "category": "reference",
+      "file": "reference/alarm-codes.md",
+      "title": "Alarm Codes",
+      "symptom": "Full list of alarm codes, meaning and severity.",
+      "alarmCode": "All",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "alarm codes",
+        "alarm list",
+        "error codes",
+        "报警代码",
+        "故障代码",
+        "alarm code table"
+      ]
+    },
+    {
+      "id": "agv-status",
+      "category": "reference",
+      "file": "reference/agv-status.md",
+      "title": "AGV Status Meanings",
+      "symptom": "What each AGV status shown in RCS means.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "agv status",
+        "status meaning",
+        "rcs status",
+        "AGV状态",
+        "状态说明",
+        "idle busy charging status"
+      ]
+    },
+    {
+      "id": "indicator-lights",
+      "category": "reference",
+      "file": "reference/indicator-lights.md",
+      "title": "Indicator Lights",
+      "symptom": "What each AGV tower/beacon light color and pattern means.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "indicator lights",
+        "tower light",
+        "beacon",
+        "light color meaning",
+        "指示灯",
+        "信号灯",
+        "三色灯",
+        "led meaning"
+      ]
+    },
+    {
+      "id": "rcs-ui-basics",
+      "category": "reference",
+      "file": "reference/rcs-ui-basics.md",
+      "title": "Common RCS Status Definitions",
+      "symptom": "What the RCS UI's operating mode, lock/unlock, order/task, and storagebin fields mean.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "rcs ui",
+        "operating mode",
+        "assignable",
+        "unassignable",
+        "lock",
+        "unlock",
+        "order status",
+        "task status",
+        "storagebin",
+        "库位状态",
+        "订单状态",
+        "任务状态",
+        "占用",
+        "常见状态定义",
+        "RCS界面"
+      ]
+    },
+    {
+      "id": "site-best-practices",
+      "category": "reference",
+      "file": "reference/site-best-practices.md",
+      "title": "Site Operation Best Practices",
+      "symptom": "Daily pallet/cargo-handling practices for operators and forklift drivers that prevent common AGV faults.",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "best practices",
+        "site operation",
+        "pallet handling",
+        "forklift",
+        "stacking",
+        "barcode placement",
+        "stretch wrap",
+        "pallet placement",
+        "non-standard pallet",
+        "操作规范",
+        "现场操作",
+        "托盘堆叠",
+        "拉伸膜",
+        "缠膜",
+        "条码粘贴",
+        "预防故障",
+        "非标托盘",
+        "托盘朝向",
+        "超托"
+      ]
+    }
+  ]
+}
