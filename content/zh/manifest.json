@@ -1,0 +1,469 @@
+{
+  "site": {
+    "name": "VisionNav AGV 客户支持知识库",
+    "tagline": "现场操作与故障排查指南",
+    "notice": {
+      "icon": "📋",
+      "title": "过渡性上线文件",
+      "body": "本站是上线后头几周的过渡性资料:汇总现场实际遇到的常见问题和处理办法,帮助大家快速上手——并不能替代正式发布的 AGV 和 RCS 用户手册,那才是权威依据。本站内容会持续更新,在这段磨合期里会根据现场实践随时补充。"
+    }
+  },
+  "categories": [
+    {
+      "id": "troubleshooting",
+      "label": "故障排查",
+      "icon": "🚨",
+      "description": "快速故障恢复:症状、报警、处理步骤。为现场使用设计,不是案头读物。"
+    },
+    {
+      "id": "operations",
+      "label": "基础操作",
+      "icon": "⚙️",
+      "description": "单独使用的基础动作,故障排查步骤中会链接到这里。"
+    },
+    {
+      "id": "system-knowledge",
+      "label": "系统知识",
+      "icon": "🧭",
+      "description": "RCS、WMS、AGV、Mujin 工作站与输送线之间如何配合——用于诊断超出单台车范围的问题。"
+    },
+    {
+      "id": "reference",
+      "label": "参考资料",
+      "icon": "📖",
+      "description": "报警代码、状态含义、指示灯、现场操作规范及背景参考资料。"
+    }
+  ],
+  "pages": [
+    {
+      "id": "barcode-not-recognized",
+      "category": "troubleshooting",
+      "file": "troubleshooting/barcode-not-recognized.md",
+      "title": "货物条码识别失败",
+      "symptom": "AGV 在取货点停止,无法继续装载。",
+      "alarmCode": "UnrecognizedBarcode 0x0240001D / NoneTargetBarcode 0x0240002F",
+      "severity": "yellow",
+      "accessLevel": 1,
+      "keywords": [
+        "barcode not recognized",
+        "AGV扫不到码",
+        "扫码",
+        "条形码",
+        "cargo barcode",
+        "UnrecognizedBarcode",
+        "NoneTargetBarcode",
+        "scan fail"
+      ]
+    },
+    {
+      "id": "laser-triggered",
+      "category": "troubleshooting",
+      "file": "troubleshooting/laser-triggered.md",
+      "title": "近距激光触发",
+      "symptom": "行驶中突然停止,红灯闪烁并伴有报警声。",
+      "alarmCode": "LaserClose 0x02100206",
+      "severity": "red",
+      "accessLevel": 1,
+      "keywords": [
+        "近距激光触发",
+        "近距离激光",
+        "laser triggered",
+        "close-range laser",
+        "laser close-range trigger",
+        "LaserClose",
+        "obstacle detected",
+        "safety laser"
+      ]
+    },
+    {
+      "id": "pallet-wrap-3d-guard",
+      "category": "troubleshooting",
+      "file": "troubleshooting/pallet-wrap-3d-guard.md",
+      "title": "立体防护触发",
+      "symptom": "路径看似畅通却停止——松脱的缠膜或纸张触发了立体防护。",
+      "alarmCode": "未见正式报警代码记录",
+      "severity": "yellow",
+      "accessLevel": 1,
+      "keywords": [
+        "立体防护触发",
+        "托盘塑料膜触发立体防护",
+        "立体防护",
+        "塑料膜",
+        "3d guard",
+        "3D protection close-range trigger",
+        "stereo protection",
+        "pallet wrap"
+      ]
+    },
+    {
+      "id": "perception-timeout",
+      "category": "troubleshooting",
+      "file": "troubleshooting/perception-timeout.md",
+      "title": "货物检测超时",
+      "symptom": "AGV 在取货前尝试检测货物时超时。",
+      "alarmCode": "NoGoodsDetected 0x02400027",
+      "severity": "yellow",
+      "accessLevel": 1,
+      "keywords": [
+        "货物检测超时",
+        "感知检测超时",
+        "感知超时",
+        "perception timeout",
+        "cargo detection timeout",
+        "NoGoodsDetected",
+        "pallet dimensions"
+      ]
+    },
+    {
+      "id": "storage-bin-mismatch",
+      "category": "troubleshooting",
+      "file": "troubleshooting/storage-bin-mismatch.md",
+      "title": "库位状态异常",
+      "symptom": "AGV 即将送货至一个视觉相机显示已被占用的库位。",
+      "alarmCode": "未见正式报警代码记录",
+      "severity": "yellow",
+      "accessLevel": 1,
+      "keywords": [
+        "明眸库位状态异常",
+        "库位状态异常",
+        "storage bin mismatch",
+        "bin status",
+        "明眸",
+        "occupied bin"
+      ]
+    },
+    {
+      "id": "power-on-off",
+      "category": "operations",
+      "file": "operations/power-on-off.md",
+      "title": "AGV 开机 / 关机",
+      "symptom": "每日流程:AGV 的开机与关机。",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "agv start-up",
+        "startup",
+        "power on",
+        "power off",
+        "开机",
+        "关机",
+        "启动",
+        "停机",
+        "initialization",
+        "初始化",
+        "start agv",
+        "boot up",
+        "shutdown procedure"
+      ]
+    },
+    {
+      "id": "pallet-dimensions",
+      "category": "operations",
+      "file": "operations/pallet-dimensions.md",
+      "title": "托盘与货物尺寸",
+      "symptom": "参考信息:本项目的标准托盘/货物尺寸和摆放方向规则。",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "pallet dimensions",
+        "cargo dimensions",
+        "托盘尺寸",
+        "货物尺寸",
+        "1.4米托盘",
+        "long side",
+        "short side",
+        "pallet orientation",
+        "托盘朝向"
+      ]
+    },
+    {
+      "id": "auto-manual-mode",
+      "category": "operations",
+      "file": "operations/auto-manual-mode.md",
+      "title": "自动/手动模式切换",
+      "symptom": "如何在自动模式与手动驾驶模式之间切换 AGV。",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "auto manual mode",
+        "auto mode",
+        "manual mode",
+        "mode switch",
+        "自动模式",
+        "手动模式",
+        "模式切换",
+        "switch mode"
+      ]
+    },
+    {
+      "id": "emergency-stop",
+      "category": "operations",
+      "file": "operations/emergency-stop.md",
+      "title": "急停恢复",
+      "symptom": "如何安全释放急停(E-Stop)并恢复运行。",
+      "alarmCode": "EmergencyStop 0x02400003",
+      "severity": "red",
+      "accessLevel": 1,
+      "keywords": [
+        "emergency stop",
+        "e-stop",
+        "estop",
+        "急停",
+        "紧急停止",
+        "release e-stop",
+        "estop recovery",
+        "safety rule",
+        "安全规则"
+      ]
+    },
+    {
+      "id": "manual-driving",
+      "category": "operations",
+      "file": "operations/manual-driving.md",
+      "title": "手动驾驶",
+      "symptom": "如何使用手持终端/摇杆安全地手动驾驶 AGV。",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "manual driving",
+        "joystick",
+        "手动驾驶",
+        "手柄",
+        "drive manually",
+        "remote control drive",
+        "手动挪车",
+        "move agv manually"
+      ]
+    },
+    {
+      "id": "reset",
+      "category": "operations",
+      "file": "operations/reset.md",
+      "title": "复位 AGV",
+      "symptom": "何时以及如何使用复位按钮清除报警/异常状态。",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "reset",
+        "reset agv",
+        "复位",
+        "重置",
+        "clear alarm",
+        "clear error"
+      ]
+    },
+    {
+      "id": "manual-task-complete",
+      "category": "operations",
+      "file": "operations/manual-task-complete.md",
+      "title": "手动完成任务",
+      "symptom": "严重故障后,如何告知 RCS 该任务已通过人工方式完成。",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "manually complete task",
+        "manual completion",
+        "手动完成任务",
+        "notify rcs task complete",
+        "level 4 error"
+      ]
+    },
+    {
+      "id": "manual-relocalization",
+      "category": "operations",
+      "file": "operations/manual-relocalization.md",
+      "title": "手动重定位/标定",
+      "symptom": "AGV 需要人工重新确认自身位置时该怎么做。",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "relocalization",
+        "recalibrate",
+        "手动标定",
+        "手动重定位",
+        "calibrate vehicle",
+        "reposition"
+      ]
+    },
+    {
+      "id": "system-architecture",
+      "category": "system-knowledge",
+      "file": "system-knowledge/architecture.md",
+      "title": "系统架构概览",
+      "symptom": "RCS、WMS、AGV、Mujin 工作站与输送线之间是如何关联的。",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "system architecture",
+        "system overview",
+        "how the system works",
+        "RCS WMS",
+        "系统架构",
+        "系统原理",
+        "整体架构"
+      ]
+    },
+    {
+      "id": "site-workflows",
+      "category": "system-knowledge",
+      "file": "system-knowledge/site-workflows.md",
+      "title": "现场工作流程",
+      "symptom": "本项目实际物流工作流程的分步说明。",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "site workflows",
+        "workflow",
+        "putaway",
+        "mujin",
+        "conveyor",
+        "reject position",
+        "工作流",
+        "流程",
+        "拒收位",
+        "现场流程"
+      ]
+    },
+    {
+      "id": "diagnosis-guide",
+      "category": "system-knowledge",
+      "file": "system-knowledge/diagnosis-guide.md",
+      "title": "系统级问题诊断",
+      "symptom": "如何区分是 AGV 本身故障,还是 WMS/RCS/Mujin/输送线的问题。",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "diagnosis",
+        "system issue",
+        "which system is at fault",
+        "故障定位",
+        "系统问题诊断",
+        "判断故障层级"
+      ]
+    },
+    {
+      "id": "alarm-codes",
+      "category": "reference",
+      "file": "reference/alarm-codes.md",
+      "title": "报警代码大全",
+      "symptom": "全部报警代码列表,含含义和严重等级。",
+      "alarmCode": "All",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "alarm codes",
+        "alarm list",
+        "error codes",
+        "报警代码",
+        "故障代码",
+        "alarm code table"
+      ]
+    },
+    {
+      "id": "agv-status",
+      "category": "reference",
+      "file": "reference/agv-status.md",
+      "title": "AGV 状态含义",
+      "symptom": "RCS 中显示的各种 AGV 状态分别代表什么。",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "agv status",
+        "status meaning",
+        "rcs status",
+        "AGV状态",
+        "状态说明",
+        "idle busy charging status"
+      ]
+    },
+    {
+      "id": "indicator-lights",
+      "category": "reference",
+      "file": "reference/indicator-lights.md",
+      "title": "指示灯说明",
+      "symptom": "AGV 塔灯/信号灯的每种颜色和闪烁模式分别代表什么。",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "indicator lights",
+        "tower light",
+        "beacon",
+        "light color meaning",
+        "指示灯",
+        "信号灯",
+        "三色灯",
+        "led meaning"
+      ]
+    },
+    {
+      "id": "rcs-ui-basics",
+      "category": "reference",
+      "file": "reference/rcs-ui-basics.md",
+      "title": "RCS 常见状态定义",
+      "symptom": "RCS 界面里运行模式、锁定/解锁、订单/任务、库位等字段分别是什么意思。",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "rcs ui",
+        "operating mode",
+        "assignable",
+        "unassignable",
+        "lock",
+        "unlock",
+        "order status",
+        "task status",
+        "storagebin",
+        "库位状态",
+        "订单状态",
+        "任务状态",
+        "占用",
+        "常见状态定义",
+        "RCS界面"
+      ]
+    },
+    {
+      "id": "site-best-practices",
+      "category": "reference",
+      "file": "reference/site-best-practices.md",
+      "title": "现场操作规范",
+      "symptom": "操作员和叉车司机的日常托盘/货物操作规范,可预防常见 AGV 故障。",
+      "alarmCode": "N/A",
+      "severity": "green",
+      "accessLevel": 1,
+      "keywords": [
+        "best practices",
+        "site operation",
+        "pallet handling",
+        "forklift",
+        "stacking",
+        "barcode placement",
+        "stretch wrap",
+        "pallet placement",
+        "non-standard pallet",
+        "操作规范",
+        "现场操作",
+        "托盘堆叠",
+        "拉伸膜",
+        "缠膜",
+        "条码粘贴",
+        "预防故障",
+        "非标托盘",
+        "托盘朝向",
+        "超托"
+      ]
+    }
+  ]
+}
