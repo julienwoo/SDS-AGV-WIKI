@@ -7,7 +7,7 @@ alarmCode: N/A
 
 ## About this page
 
-Quick reference for fields you'll see constantly in the RCS web UI. For actual troubleshooting, use [System Architecture Overview](../system-knowledge/architecture.md) and [Diagnosing System-Level Issues](../system-knowledge/diagnosis-guide.md) instead.
+Quick reference for fields you'll see constantly in the RCS web UI. For actual troubleshooting, use [System Architecture Overview](../system-knowledge/architecture.md) instead.
 
 ## 1. AGV Operating Mode
 

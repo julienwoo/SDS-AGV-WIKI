@@ -14,7 +14,7 @@ Looking at this from the RCS screen instead? RCS has its own, separate **Vehicle
 | Status | Meaning | Action Needed |
 |---|---|---|
 | Initialization | AGV is booting / starting its software | None — wait for it to reach Standby |
-| Manual mode | Rotary switch is set to Manual; hand-held device is active | None — expected while driving manually, see [Manual Driving](../operations/manual-driving.md) |
+| Manual mode | Rotary switch is set to Manual; hand-held device is active | None — expected while driving manually |
 | Maintenance mode | Rotary switch is set to Maintenance | Expected only during service work |
 | Automatic mode, on standby | In Auto mode, no task assigned, waiting | None — normal, equivalent to "idle" |
 | Paused | An operator (or RCS) has paused the current task | Press Start to resume; if it does not resume, treat it as a fault and escalate per your site's process |
@@ -22,7 +22,7 @@ Looking at this from the RCS screen instead? RCS has its own, separate **Vehicle
 | Automatic charging | AGV is docked at an automatic charging station | None — normal, this is expected |
 | Manual charging | AGV is connected to a manual charger | None — normal during manual charging |
 | Low battery | Battery has dropped below the low-battery threshold | Dock the AGV at a charging station and let it charge automatically |
-| Level-3 error active | A serious fault has been triggered | Check the exact alarm code on screen; see [Alarm Codes](alarm-codes.md) and check [Troubleshooting](#/category/troubleshooting) for a matching fault |
+| Level-3 error active | A serious fault has been triggered | Check the exact alarm code on screen and check [Troubleshooting](#/category/troubleshooting) for a matching fault |
 
 ## Task progress (from the site's RCS/WMS task flow)
 
@@ -36,7 +36,7 @@ The project's workflow documentation (VN25447 Workflow Drawing) shows tasks movi
 | Completed | The task has finished successfully end-to-end |
 | Task Error | The task did not complete normally and needs attention |
 
-If a task shows **Task Error**, check the AGV for an active alarm code first (see [Alarm Codes](alarm-codes.md)) — most task errors trace back to a specific vehicle-level fault (a load-detection check failing, an off-path condition, a communication drop, etc.) rather than being a standalone RCS problem.
+If a task shows **Task Error**, check the AGV for an active alarm code first — most task errors trace back to a specific vehicle-level fault (a load-detection check failing, an off-path condition, a communication drop, etc.) rather than being a standalone RCS problem.
 
 ## Notes
 
