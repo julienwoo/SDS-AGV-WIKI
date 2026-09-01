@@ -127,10 +127,7 @@
       html += "<h3>" + cat.icon + " " + cat.label + "</h3>";
       pagesInCategory(cat.id).forEach((p) => {
         const active = p.id === activePageId ? " active" : "";
-        const dot = p.category === "troubleshooting"
-          ? '<span class="vn-badge-dot ' + p.severity + '"></span>'
-          : "";
-        html += '<a class="vn-nav-link' + active + '" href="#/page/' + p.id + '">' + dot + escapeHtml(p.title) + "</a>";
+        html += '<a class="vn-nav-link' + active + '" href="#/page/' + p.id + '">' + escapeHtml(p.title) + "</a>";
       });
     });
     sidebar.innerHTML = html;
@@ -160,10 +157,7 @@
     document.title = MANIFEST.site.name;
     renderSidebar(null);
 
-    function tileIcon(p) {
-      if (p.category === "troubleshooting") {
-        return { red: "🔴", yellow: "🟡", green: "🟢" }[p.severity] || "🔴";
-      }
+    function tileIcon() {
       return "▶";
     }
 
