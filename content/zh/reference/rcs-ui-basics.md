@@ -7,7 +7,7 @@ alarmCode: N/A
 
 ## 关于本页
 
-RCS 网页界面中经常会看到的字段速查。如果要实际排查问题,请改用[系统架构概览](../system-knowledge/architecture.md)和[系统级问题诊断](../system-knowledge/diagnosis-guide.md)。
+RCS 网页界面中经常会看到的字段速查。如果要实际排查问题,请改用[系统架构概览](../system-knowledge/architecture.md)。
 
 ## 1. AGV Operating Mode(运行模式)
 

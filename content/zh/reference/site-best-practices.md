@@ -11,7 +11,7 @@ alarmCode: N/A
 
 ## 1. 开机/关机
 
-等待 AGV 完成**初始化**,确认状态和定位显示正常后再派发任务——见[AGV 开机 / 关机](../operations/power-on-off.md)。过早派发任务可能导致定位不准或任务执行异常。
+等待 AGV 完成**初始化**,确认状态和定位显示正常后再派发任务。
 
 ## 2. 空托盘堆叠
 
@@ -24,22 +24,22 @@ alarmCode: N/A
 
 ## 3. 托盘条码粘贴
 
-将条码**贴在靠近托盘底脚的位置,尽量放低。** 条码贴得太高或角度不一致,是导致[货物条码识别失败](../troubleshooting/barcode-not-recognized.md)的常见原因。
+将条码**贴在靠近托盘底脚的位置,尽量放低。** 条码贴得太高或角度不一致,是导致[货物条码识别失败](../troubleshooting/index.md#cargo-barcode-not-recognized)的常见原因。
 
 ## 4. 拉伸缠膜
 
 | 要求 | 违反后果 |
 |---|---|
 | 缠膜不能遮住托盘的插叉孔 | 取货时出现感知/定位故障 |
-| 不能有松脱或外露的边缘——薄膜必须完全贴合货物 | AGV 的立体安全区可能把飘动的薄膜误判为障碍物 → [托盘塑料膜触发立体防护](../troubleshooting/pallet-wrap-3d-guard.md)或[近距激光触发](../troubleshooting/laser-triggered.md) |
+| 不能有松脱或外露的边缘——薄膜必须完全贴合货物 | AGV 的立体安全区可能把飘动的薄膜误判为障碍物 → [托盘塑料膜触发立体防护](../troubleshooting/index.md#3d-protection-close-range-trigger)或[近距激光触发](../troubleshooting/index.md#close-range-laser-triggered) |
 
 💡 缠膜后做一次目视检查,修剪掉任何松脱或外露的部分。
 
 ## 5. 托盘摆放
 
-将托盘**放平、居中,并对齐地面标线**,不能倾斜——在货架下方尤其重要,因为那里的空间本来就很紧张。摆放不正或倾斜的托盘会让 AGV 的可用空间不足,可能触发安全激光,或卡在货架下方。见[货物检测超时](../troubleshooting/perception-timeout.md)。
+将托盘**放平、居中,并对齐地面标线**,不能倾斜——在货架下方尤其重要,因为那里的空间本来就很紧张。摆放不正或倾斜的托盘会让 AGV 的可用空间不足,可能触发安全激光,或卡在货架下方。见[货物检测超时](../troubleshooting/index.md#cargo-detection-timeout)。
 
-**货架下的 1.4 米托盘请横向摆放:** 按项目技术规格,深度不超过 1.2 米的托盘可以从短边朝向 AGV 摆放。深度超过 1.2 米的托盘——包括本现场使用的 1.4 米托盘——必须转向,改由**长边**朝向 AGV(见[托盘与货物尺寸](../operations/pallet-dimensions.md))。不要把 1.4 米的托盘竖向摆放:从短边朝向 AGV 摆放,会导致 AGV 运送货物时摇晃、不稳定。
+**货架下的 1.4 米托盘请横向摆放:** 按项目技术规格,深度不超过 1.2 米的托盘可以从短边朝向 AGV 摆放。深度超过 1.2 米的托盘——包括本现场使用的 1.4 米托盘——必须转向,改由**长边**朝向 AGV。不要把 1.4 米的托盘竖向摆放:从短边朝向 AGV 摆放,会导致 AGV 运送货物时摇晃、不稳定。
 
 **货物请不要超出托盘范围。** 如果货物超出了托盘边缘,请先将货物摆正,确保完全落在托盘范围内,再让 AGV 来取货。
 
@@ -49,12 +49,12 @@ alarmCode: N/A
 
 ## 7. 在 AGV 附近进行手动作业
 
-在伸手进入 AGV 路径或在其附近动手操作之前——比如清除障碍物、检查或擦拭传感器、调整托盘或缠膜、排除卡阻——**先按下 E-Stop,哪怕 AGV 看起来已经停止。** 只有在人员已经离开、确认可以安全恢复后,才能释放 E-Stop——完整的释放流程见[急停恢复](../operations/emergency-stop.md)。
+在伸手进入 AGV 路径或在其附近动手操作之前——比如清除障碍物、检查或擦拭传感器、调整托盘或缠膜、排除卡阻——**先按下 E-Stop,哪怕 AGV 看起来已经停止。** 只有在人员已经离开、确认可以安全恢复后,才能释放 E-Stop。
 
 ## 如果故障反复出现
 
 先检查是否符合第 2–5 节的要求——这些是最常见的下游故障来源:
 
-- 感知/货物检测类故障(货物角度/偏移过大、条码未识别、货物检测超时)→ [货物条码识别失败](../troubleshooting/barcode-not-recognized.md)、[货物检测超时](../troubleshooting/perception-timeout.md),或查看[报警代码](../reference/alarm-codes.md)中同类的其他代码
-- 安全防护触发(近距激光、立体防护)→ [近距激光触发](../troubleshooting/laser-triggered.md)、[立体防护触发](../troubleshooting/pallet-wrap-3d-guard.md)
-- 其他装卸安全检查失败 → 查看[报警代码](../reference/alarm-codes.md)中匹配的代码,并按现场流程上报
+- 感知/货物检测类故障(货物角度/偏移过大、条码未识别、货物检测超时)→ [货物条码识别失败](../troubleshooting/index.md#cargo-barcode-not-recognized)、[货物检测超时](../troubleshooting/index.md#cargo-detection-timeout)
+- 安全防护触发(近距激光、立体防护)→ [近距激光触发](../troubleshooting/index.md#close-range-laser-triggered)、[立体防护触发](../troubleshooting/index.md#3d-protection-close-range-trigger)
+- 其他装卸安全检查失败 → 按现场流程上报

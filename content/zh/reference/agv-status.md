@@ -14,7 +14,7 @@ alarmCode: N/A
 | 状态 | 含义 | 需要的操作 |
 |---|---|---|
 | Initialization(初始化) | AGV 正在启动/加载软件 | 无——等待其进入待机状态即可 |
-| Manual mode(手动模式) | 旋钮开关设为手动;手持终端已激活 | 无——手动驾驶时属正常现象,见[手动驾驶](../operations/manual-driving.md) |
+| Manual mode(手动模式) | 旋钮开关设为手动;手持终端已激活 | 无——手动驾驶时属正常现象 |
 | Maintenance mode(维护模式) | 旋钮开关设为维护 | 仅在维修作业期间出现属正常 |
 | Automatic mode, on standby(自动待机) | 处于自动模式,未分配任务,等待中 | 无——正常状态,相当于"空闲" |
 | Paused(已暂停) | 操作员(或 RCS)暂停了当前任务 | 按启动恢复;如果无法恢复,应视为故障并按现场流程上报 |
@@ -22,7 +22,7 @@ alarmCode: N/A
 | Automatic charging(自动充电) | AGV 已对接在自动充电站 | 无——正常 |
 | Manual charging(手动充电) | AGV 已连接手动充电器 | 无——手动充电期间属正常 |
 | Low battery(低电量) | 电量已降至低电量阈值以下 | 将 AGV 对接到充电站,让它自动充电 |
-| Level-3 error active(3 级错误激活) | 触发了严重故障 | 检查屏幕上显示的具体报警代码;见[报警代码](alarm-codes.md),并在[故障排查](#/category/troubleshooting)中查找对应故障 |
+| Level-3 error active(3 级错误激活) | 触发了严重故障 | 检查屏幕上显示的具体报警代码,并在[故障排查](#/category/troubleshooting)中查找对应故障 |
 
 ## Task progress (from the site's RCS/WMS task flow)
 
@@ -36,7 +36,7 @@ alarmCode: N/A
 | Completed(已完成) | 任务已端到端顺利完成 |
 | Task Error(任务错误) | 任务未正常完成,需要处理 |
 
-如果任务显示为 **Task Error**,先检查 AGV 是否有正在触发的报警代码(见[报警代码](alarm-codes.md))——大多数任务错误可以追溯到某个具体的车辆级故障(比如货物检测检查失败、偏离路径、通信中断等),而不是 RCS 单独的问题。
+如果任务显示为 **Task Error**,先检查 AGV 是否有正在触发的报警代码——大多数任务错误可以追溯到某个具体的车辆级故障(比如货物检测检查失败、偏离路径、通信中断等),而不是 RCS 单独的问题。
 
 ## 说明
 
