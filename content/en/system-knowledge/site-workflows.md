@@ -75,4 +75,4 @@ This is the shared fallback used by every workflow above whenever a scanned barc
 2. The AGV that already has the pallet locked executes this task — loads it from the source, unloads it at the reject position.
 3. RCS reports the task's progress as **Task Error** (not Completed) and notifies WMS.
 
-**What this means on the floor:** if a pallet ends up in the reject position area, the AGV did exactly what it was supposed to do — the actual problem is a barcode/label or WMS data mismatch upstream, not a vehicle fault. Don't troubleshoot the AGV for this; flag the mismatched pallet and its expected order to whoever manages WMS data at your site. See [Diagnosing System-Level Issues](diagnosis-guide.md).
+**What this means on the floor:** if a pallet ends up in the reject position area, the AGV did exactly what it was supposed to do — the actual problem is a barcode/label or WMS data mismatch upstream, not a vehicle fault. Don't troubleshoot the AGV for this; flag the mismatched pallet and its expected order to whoever manages WMS data at your site.

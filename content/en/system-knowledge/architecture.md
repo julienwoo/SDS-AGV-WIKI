@@ -7,7 +7,7 @@ alarmCode: N/A
 
 ## Why this page exists
 
-A single AGV alarm code (see [Alarm Codes](../reference/alarm-codes.md)) points at a problem on the vehicle itself. But on this project, an AGV is one part of a larger chain — a stuck task or a "nothing is happening" symptom is often caused by something upstream or downstream of the AGV, not the AGV itself. This page gives the overall shape of the system so you can tell which layer to look at. For the actual step-by-step processes, see [Site Workflows](site-workflows.md).
+A single AGV alarm code points at a problem on the vehicle itself. But on this project, an AGV is one part of a larger chain — a stuck task or a "nothing is happening" symptom is often caused by something upstream or downstream of the AGV, not the AGV itself. This page gives the overall shape of the system so you can tell which layer to look at. For the actual step-by-step processes, see [Site Workflows](site-workflows.md).
 
 ## The systems involved
 
@@ -36,5 +36,5 @@ Full state meanings: [AGV Status Meanings](../reference/agv-status.md).
 
 ## How to use this when something looks wrong
 
-- An **AGV alarm code is showing** → it's a vehicle-level problem. Check the current [Troubleshooting](#/category/troubleshooting) list, or look it up in the full [Alarm Codes](../reference/alarm-codes.md) reference.
-- **No AGV alarm, but a task is stuck or nothing is happening** → it's more likely a WMS order that hasn't arrived, a Mujin/conveyor signal that hasn't come through, or a barcode mismatch redirecting the pallet to reject position. See [Diagnosing System-Level Issues](diagnosis-guide.md).
+- An **AGV alarm code is showing** → it's a vehicle-level problem. Check the current [Troubleshooting](#/category/troubleshooting) list for the matching fault.
+- **No AGV alarm, but a task is stuck or nothing is happening** → it's more likely a WMS order that hasn't arrived, a Mujin/conveyor signal that hasn't come through, or a barcode mismatch redirecting the pallet to reject position. See [Site Workflows](site-workflows.md) for how that's handled.
