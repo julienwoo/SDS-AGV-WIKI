@@ -16,12 +16,6 @@
       "description": "快速故障恢复:症状、报警、处理步骤。为现场使用设计,不是案头读物。"
     },
     {
-      "id": "operations",
-      "label": "基础操作",
-      "icon": "⚙️",
-      "description": "单独使用的基础动作,故障排查步骤中会链接到这里。"
-    },
-    {
       "id": "system-knowledge",
       "label": "系统知识",
       "icon": "🧭",
@@ -36,15 +30,18 @@
   ],
   "pages": [
     {
-      "id": "barcode-not-recognized",
+      "id": "fault-recovery",
       "category": "troubleshooting",
-      "file": "troubleshooting/barcode-not-recognized.md",
-      "title": "货物条码识别失败",
-      "symptom": "AGV 在取货点停止,无法继续装载。",
-      "alarmCode": "UnrecognizedBarcode 0x0240001D / NoneTargetBarcode 0x0240002F",
-      "severity": "yellow",
+      "file": "troubleshooting/index.md",
+      "title": "故障排查:常见故障",
+      "symptom": "5 个最常见现场故障的快速处理方法,以及适用于所有故障的急停安全规则。",
+      "alarmCode": "N/A",
+      "severity": "",
       "accessLevel": 1,
       "keywords": [
+        "故障排查",
+        "troubleshooting",
+        "fault recovery",
         "barcode not recognized",
         "AGV扫不到码",
         "扫码",
@@ -52,19 +49,7 @@
         "cargo barcode",
         "UnrecognizedBarcode",
         "NoneTargetBarcode",
-        "scan fail"
-      ]
-    },
-    {
-      "id": "laser-triggered",
-      "category": "troubleshooting",
-      "file": "troubleshooting/laser-triggered.md",
-      "title": "近距激光触发",
-      "symptom": "行驶中突然停止,红灯闪烁并伴有报警声。",
-      "alarmCode": "LaserClose 0x02100206",
-      "severity": "red",
-      "accessLevel": 1,
-      "keywords": [
+        "scan fail",
         "近距激光触发",
         "近距离激光",
         "laser triggered",
@@ -72,19 +57,7 @@
         "laser close-range trigger",
         "LaserClose",
         "obstacle detected",
-        "safety laser"
-      ]
-    },
-    {
-      "id": "pallet-wrap-3d-guard",
-      "category": "troubleshooting",
-      "file": "troubleshooting/pallet-wrap-3d-guard.md",
-      "title": "立体防护触发",
-      "symptom": "路径看似畅通却停止——松脱的缠膜或纸张触发了立体防护。",
-      "alarmCode": "未见正式报警代码记录",
-      "severity": "yellow",
-      "accessLevel": 1,
-      "keywords": [
+        "safety laser",
         "立体防护触发",
         "托盘塑料膜触发立体防护",
         "立体防护",
@@ -92,204 +65,19 @@
         "3d guard",
         "3D protection close-range trigger",
         "stereo protection",
-        "pallet wrap"
-      ]
-    },
-    {
-      "id": "perception-timeout",
-      "category": "troubleshooting",
-      "file": "troubleshooting/perception-timeout.md",
-      "title": "货物检测超时",
-      "symptom": "AGV 在取货前尝试检测货物时超时。",
-      "alarmCode": "NoGoodsDetected 0x02400027",
-      "severity": "yellow",
-      "accessLevel": 1,
-      "keywords": [
+        "pallet wrap",
         "货物检测超时",
         "感知检测超时",
         "感知超时",
         "perception timeout",
         "cargo detection timeout",
         "NoGoodsDetected",
-        "pallet dimensions"
-      ]
-    },
-    {
-      "id": "storage-bin-mismatch",
-      "category": "troubleshooting",
-      "file": "troubleshooting/storage-bin-mismatch.md",
-      "title": "库位状态异常",
-      "symptom": "AGV 即将送货至一个视觉相机显示已被占用的库位。",
-      "alarmCode": "未见正式报警代码记录",
-      "severity": "yellow",
-      "accessLevel": 1,
-      "keywords": [
         "明眸库位状态异常",
         "库位状态异常",
         "storage bin mismatch",
         "bin status",
         "明眸",
         "occupied bin"
-      ]
-    },
-    {
-      "id": "power-on-off",
-      "category": "operations",
-      "file": "operations/power-on-off.md",
-      "title": "AGV 开机 / 关机",
-      "symptom": "每日流程:AGV 的开机与关机。",
-      "alarmCode": "N/A",
-      "severity": "green",
-      "accessLevel": 1,
-      "keywords": [
-        "agv start-up",
-        "startup",
-        "power on",
-        "power off",
-        "开机",
-        "关机",
-        "启动",
-        "停机",
-        "initialization",
-        "初始化",
-        "start agv",
-        "boot up",
-        "shutdown procedure"
-      ]
-    },
-    {
-      "id": "pallet-dimensions",
-      "category": "operations",
-      "file": "operations/pallet-dimensions.md",
-      "title": "托盘与货物尺寸",
-      "symptom": "参考信息:本项目的标准托盘/货物尺寸和摆放方向规则。",
-      "alarmCode": "N/A",
-      "severity": "green",
-      "accessLevel": 1,
-      "keywords": [
-        "pallet dimensions",
-        "cargo dimensions",
-        "托盘尺寸",
-        "货物尺寸",
-        "1.4米托盘",
-        "long side",
-        "short side",
-        "pallet orientation",
-        "托盘朝向"
-      ]
-    },
-    {
-      "id": "auto-manual-mode",
-      "category": "operations",
-      "file": "operations/auto-manual-mode.md",
-      "title": "自动/手动模式切换",
-      "symptom": "如何在自动模式与手动驾驶模式之间切换 AGV。",
-      "alarmCode": "N/A",
-      "severity": "green",
-      "accessLevel": 1,
-      "keywords": [
-        "auto manual mode",
-        "auto mode",
-        "manual mode",
-        "mode switch",
-        "自动模式",
-        "手动模式",
-        "模式切换",
-        "switch mode"
-      ]
-    },
-    {
-      "id": "emergency-stop",
-      "category": "operations",
-      "file": "operations/emergency-stop.md",
-      "title": "急停恢复",
-      "symptom": "如何安全释放急停(E-Stop)并恢复运行。",
-      "alarmCode": "EmergencyStop 0x02400003",
-      "severity": "red",
-      "accessLevel": 1,
-      "keywords": [
-        "emergency stop",
-        "e-stop",
-        "estop",
-        "急停",
-        "紧急停止",
-        "release e-stop",
-        "estop recovery",
-        "safety rule",
-        "安全规则"
-      ]
-    },
-    {
-      "id": "manual-driving",
-      "category": "operations",
-      "file": "operations/manual-driving.md",
-      "title": "手动驾驶",
-      "symptom": "如何使用手持终端/摇杆安全地手动驾驶 AGV。",
-      "alarmCode": "N/A",
-      "severity": "green",
-      "accessLevel": 1,
-      "keywords": [
-        "manual driving",
-        "joystick",
-        "手动驾驶",
-        "手柄",
-        "drive manually",
-        "remote control drive",
-        "手动挪车",
-        "move agv manually"
-      ]
-    },
-    {
-      "id": "reset",
-      "category": "operations",
-      "file": "operations/reset.md",
-      "title": "复位 AGV",
-      "symptom": "何时以及如何使用复位按钮清除报警/异常状态。",
-      "alarmCode": "N/A",
-      "severity": "green",
-      "accessLevel": 1,
-      "keywords": [
-        "reset",
-        "reset agv",
-        "复位",
-        "重置",
-        "clear alarm",
-        "clear error"
-      ]
-    },
-    {
-      "id": "manual-task-complete",
-      "category": "operations",
-      "file": "operations/manual-task-complete.md",
-      "title": "手动完成任务",
-      "symptom": "严重故障后,如何告知 RCS 该任务已通过人工方式完成。",
-      "alarmCode": "N/A",
-      "severity": "green",
-      "accessLevel": 1,
-      "keywords": [
-        "manually complete task",
-        "manual completion",
-        "手动完成任务",
-        "notify rcs task complete",
-        "level 4 error"
-      ]
-    },
-    {
-      "id": "manual-relocalization",
-      "category": "operations",
-      "file": "operations/manual-relocalization.md",
-      "title": "手动重定位/标定",
-      "symptom": "AGV 需要人工重新确认自身位置时该怎么做。",
-      "alarmCode": "N/A",
-      "severity": "green",
-      "accessLevel": 1,
-      "keywords": [
-        "relocalization",
-        "recalibrate",
-        "手动标定",
-        "手动重定位",
-        "calibrate vehicle",
-        "reposition"
       ]
     },
     {
@@ -331,42 +119,6 @@
         "流程",
         "拒收位",
         "现场流程"
-      ]
-    },
-    {
-      "id": "diagnosis-guide",
-      "category": "system-knowledge",
-      "file": "system-knowledge/diagnosis-guide.md",
-      "title": "系统级问题诊断",
-      "symptom": "如何区分是 AGV 本身故障,还是 WMS/RCS/Mujin/输送线的问题。",
-      "alarmCode": "N/A",
-      "severity": "green",
-      "accessLevel": 1,
-      "keywords": [
-        "diagnosis",
-        "system issue",
-        "which system is at fault",
-        "故障定位",
-        "系统问题诊断",
-        "判断故障层级"
-      ]
-    },
-    {
-      "id": "alarm-codes",
-      "category": "reference",
-      "file": "reference/alarm-codes.md",
-      "title": "报警代码大全",
-      "symptom": "全部报警代码列表,含含义和严重等级。",
-      "alarmCode": "All",
-      "severity": "green",
-      "accessLevel": 1,
-      "keywords": [
-        "alarm codes",
-        "alarm list",
-        "error codes",
-        "报警代码",
-        "故障代码",
-        "alarm code table"
       ]
     },
     {
